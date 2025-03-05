@@ -10,10 +10,8 @@ datasets:
     name: highrev-train
     type: VoxelnpzPngSingleDeblurDataset
 
-    # dataroot: /work/lei_sun/HighREV/train
-    # dataroot_voxel: /work/lei_sun/HighREV_voxel/train/voxel
-    dataroot: /PATH/TO/DATASET/HighREV/train
-    dataroot_voxel: /PATH/TO/DATASET/HighREV_voxel/train/voxel
+    dataroot: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/train
+    dataroot_voxel: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/train/voxel
 
     gt_size: 256
     # keep true if use events
@@ -37,14 +35,28 @@ datasets:
     name: highrev-val
     type: VoxelnpzPngSingleDeblurDataset
 
-    # dataroot: /work/lei_sun/HighREV/val
-    # dataroot_voxel: /work/lei_sun/HighREV_voxel/val/voxel
-    dataroot: /PATH/TO/DATASET/HighREV/train
-    dataroot_voxel: /PATH/TO/DATASET/HighREV_voxel/train/voxel
-
+    dataroot: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot_voxel: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
 
     gt_size: ~
     norm_voxel: true  
+
+    io_backend:
+      type: disk
+    
+    use_hflip: false
+    use_rot: false
+
+  # Add test dataset configuration
+  test:
+    name: highrev-test
+    type: VoxelnpzPngSingleDeblurDataset
+    
+    dataroot: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot_voxel: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
+    
+    gt_size: ~
+    norm_voxel: true
 
     io_backend:
       type: disk
@@ -62,10 +74,18 @@ network_g:
 
 # path
 path:
-  pretrain_network_g: ~
+  root: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu
+  results_root: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/results
+  log: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/results/log
+  visualization: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/results/visualization
+  pretrain_network_g: null
   strict_load_g: true
-  resume_state: ~
-  training_states: ~ # save current trainig model states, for resume
+  resume_state: null
+  training_states: null
+  # Make sure all required paths for testing are defined
+  experiments_root: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/results/EFNet_highrev_single_deblur_voxel_debug
+  models: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/results/EFNet_highrev_single_deblur_voxel_debug/models
+  training_state: C:/Users/yashu/OneDrive/Documents/YGP_pj/cvpr_2025/NTIRE2025_EventDeblur_challenge_asu/results/EFNet_highrev_single_deblur_voxel_debug/training_state
 
 # training settings
 train:
@@ -92,7 +112,7 @@ train:
 # validation settings
 val:
   val_freq: !!float 5e4 # 2e4
-  save_img: false  
+  save_img: true  
   grids: ~  
   crop_size: ~ # use it of the gpu memory is not enough for whole image inference
   max_minibatch: 8  

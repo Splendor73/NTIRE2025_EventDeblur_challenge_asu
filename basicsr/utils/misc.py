@@ -39,15 +39,19 @@ def mkdir_and_rename(path):
 def make_exp_dirs(opt):
     """Make dirs for experiments."""
     path_opt = opt['path'].copy()
-    if opt['is_train']:
-        mkdir_and_rename(path_opt.pop('experiments_root'))
-    else:
-        mkdir_and_rename(path_opt.pop('results_root'))
     for key, path in path_opt.items():
-        if ('strict_load' not in key) and ('pretrain_network'
-                                           not in key) and ('resume'
-                                                            not in key):
+        if key not in [
+                'strict_load_g', 'pretrain_network_g', 'resume_state', 'training_states'
+        ]:
+            if isinstance(path, str) and path.startswith('~'):
+                path_opt[key] = os.path.expanduser(path)
+            # Print the key and path to debug
+            print(f"Path key: {key}, Path value: {path}")
+            if path is None:
+                print(f"WARNING: Path '{key}' is None!")
+                continue
             os.makedirs(path, exist_ok=True)
+    opt['path'] = path_opt
 
 
 def scandir(dir_path, suffix=None, recursive=False, full_path=False):
