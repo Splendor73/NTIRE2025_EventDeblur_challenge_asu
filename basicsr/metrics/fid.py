@@ -7,11 +7,13 @@ from tqdm import tqdm
 from basicsr.models.archs.inception import InceptionV3
 
 
-def load_patched_inception_v3(device='cuda',
+def load_patched_inception_v3(device=None,
                               resize_input=True,
                               normalize_input=False):
     # we may not resize the input, but in [rosinality/stylegan2-pytorch] it
     # does resize the input.
+    if device is None:
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     inception = InceptionV3([3],
                             resize_input=resize_input,
                             normalize_input=normalize_input)
@@ -23,7 +25,7 @@ def load_patched_inception_v3(device='cuda',
 def extract_inception_features(data_generator,
                                inception,
                                len_generator=None,
-                               device='cuda'):
+                               device=None):
     """Extract inception features.
 
     Args:
@@ -36,6 +38,8 @@ def extract_inception_features(data_generator,
     Returns:
         Tensor: Extracted features.
     """
+    if device is None:
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     if len_generator is not None:
         pbar = tqdm(total=len_generator, unit='batch', desc='Extract')
     else:

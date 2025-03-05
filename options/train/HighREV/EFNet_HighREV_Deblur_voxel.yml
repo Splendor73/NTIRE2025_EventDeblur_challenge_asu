@@ -2,7 +2,7 @@
 name: EFNet_highrev_single_deblur_voxel_debug  # add debug for quick debug
 model_type: ImageEventRestorationModel
 scale: 1
-num_gpu:  1 #4
+num_gpu:  0 #4
 manual_seed: 10
 
 datasets:
@@ -12,8 +12,8 @@ datasets:
 
     # dataroot: /work/lei_sun/HighREV/train
     # dataroot_voxel: /work/lei_sun/HighREV_voxel/train/voxel
-    dataroot: /PATH/TO/DATASET/HighREV/train
-    dataroot_voxel: /PATH/TO/DATASET/HighREV_voxel/train/voxel
+    dataroot: /Users/yashupatel/ASU Dropbox/Yashu Patel/ASU/YGP_Projects_L/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/train
+    dataroot_voxel: /Users/yashupatel/ASU Dropbox/Yashu Patel/ASU/YGP_Projects_L/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/train/voxel
 
     gt_size: 256
     # keep true if use events
@@ -39,9 +39,24 @@ datasets:
 
     # dataroot: /work/lei_sun/HighREV/val
     # dataroot_voxel: /work/lei_sun/HighREV_voxel/val/voxel
-    dataroot: /PATH/TO/DATASET/HighREV/train
-    dataroot_voxel: /PATH/TO/DATASET/HighREV_voxel/train/voxel
+    dataroot: /Users/yashupatel/ASU Dropbox/Yashu Patel/ASU/YGP_Projects_L/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot_voxel: /Users/yashupatel/ASU Dropbox/Yashu Patel/ASU/YGP_Projects_L/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
 
+    gt_size: ~
+    norm_voxel: true  
+
+    io_backend:
+      type: disk
+    
+    use_hflip: false
+    use_rot: false
+    
+  test:
+    name: highrev-test
+    type: VoxelnpzPngSingleDeblurDataset
+
+    dataroot: /Users/yashupatel/ASU Dropbox/Yashu Patel/ASU/YGP_Projects_L/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot_voxel: /Users/yashupatel/ASU Dropbox/Yashu Patel/ASU/YGP_Projects_L/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
 
     gt_size: ~
     norm_voxel: true  
@@ -62,6 +77,10 @@ network_g:
 
 # path
 path:
+  root: /Users/yashupatel/ASU Dropbox/Yashu Patel/ASU/YGP_Projects_L/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu
+  results_root: /Users/yashupatel/ASU Dropbox/Yashu Patel/ASU/YGP_Projects_L/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
+  log: /Users/yashupatel/ASU Dropbox/Yashu Patel/ASU/YGP_Projects_L/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
+  visualization: /Users/yashupatel/ASU Dropbox/Yashu Patel/ASU/YGP_Projects_L/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results/visualization
   pretrain_network_g: ~
   strict_load_g: true
   resume_state: ~
@@ -92,7 +111,7 @@ train:
 # validation settings
 val:
   val_freq: !!float 5e4 # 2e4
-  save_img: false  
+  save_img: true  
   grids: ~  
   crop_size: ~ # use it of the gpu memory is not enough for whole image inference
   max_minibatch: 8  

@@ -14,6 +14,9 @@ def main():
     # parse options, set distributed setting, set ramdom seed
     opt = parse_options(is_train=False)
 
+    # Print path section for debugging
+    print("Path section:", opt['path'])
+    
     torch.backends.cudnn.benchmark = True
     # torch.backends.cudnn.deterministic = True
 

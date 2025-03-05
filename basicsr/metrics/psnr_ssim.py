@@ -143,10 +143,7 @@ def _generate_3d_gaussian_kernel():
     return conv3d
 
 def _ssim_3d(img1, img2, max_value):
-    assert len(img1.shape) == 3 and len(img2.shape) == 3
-    """Calculate SSIM (structural similarity) for one channel images.
-
-    It is called by func:`calculate_ssim`.
+    """Calculate SSIM (structural similarity) for 3D images.
 
     Args:
         img1 (ndarray): Images with range [0, 255]/[0, 1] with order 'HWC'.
@@ -160,11 +157,12 @@ def _ssim_3d(img1, img2, max_value):
     img1 = img1.astype(np.float64)
     img2 = img2.astype(np.float64)
 
-    kernel = _generate_3d_gaussian_kernel().cuda()
+    kernel = _generate_3d_gaussian_kernel()
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    kernel = kernel.to(device)
 
-    img1 = torch.tensor(img1).float().cuda()
-    img2 = torch.tensor(img2).float().cuda()
-
+    img1 = torch.tensor(img1).float().to(device)
+    img2 = torch.tensor(img2).float().to(device)
 
     mu1 = _3d_gaussian_calculator(img1, kernel)
     mu2 = _3d_gaussian_calculator(img2, kernel)

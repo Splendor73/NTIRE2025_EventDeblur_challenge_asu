@@ -44,7 +44,8 @@ def make_exp_dirs(opt):
     else:
         mkdir_and_rename(path_opt.pop('results_root'))
     for key, path in path_opt.items():
-        if ('strict_load' not in key) and ('pretrain_network'
+        print(f"Creating directory for {key}: {path}")
+        if path is not None and ('strict_load' not in key) and ('pretrain_network'
                                            not in key) and ('resume'
                                                             not in key):
             os.makedirs(path, exist_ok=True)

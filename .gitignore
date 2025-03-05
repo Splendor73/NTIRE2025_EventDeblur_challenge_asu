@@ -1,3 +1,55 @@
 __pychache__/
 *.pyc
 experiments/
+
+   # Ignore results directory
+   results/
+   
+   # Ignore datasets directory
+   datasets/
+   
+   # Ignore local environment files
+   .venv/
+   *.env
+
+# Ignore Python virtual environments
+.venv/
+venv/
+virtual/
+
+# Ignore datasets
+datasets/
+datasets/HighREV/
+datasets/HighREV_voxel/
+
+# Ignore results
+results/
+
+# Ignore logs and temporary files
+logs/
+*.log
+*.tmp
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore egg files and directories
+*.egg
+*.egg-info/
+.eggs/
+
+# Ignore environment files
+*.env
+.python-version
+
+# Ignore any other temporary or unnecessary files
+Create/
+new/

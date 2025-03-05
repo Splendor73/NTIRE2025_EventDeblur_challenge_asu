@@ -9,7 +9,7 @@ from os import path as osp
 from basicsr.data.prefetch_dataloader import PrefetchDataLoader
 from basicsr.utils import get_root_logger, scandir
 from basicsr.utils.dist_util import get_dist_info
-from basicsr.data.h5_image_dataset import *
+# from basicsr.data.h5_image_dataset import *
 
 __all__ = ['create_dataset', 'create_dataloader']
 
@@ -45,11 +45,10 @@ def create_dataset(dataset_opt):
     if dataset_cls is None:
         raise ValueError(f'Dataset {dataset_type} is not found.')
     
-    if dataset_type == "H5ImageDataset":
-        dataset = concatenate_h5_datasets(dataset_cls, dataset_opt)
-    
-    else:
-        dataset = dataset_cls(dataset_opt)
+    # if dataset_type == "H5ImageDataset":
+    #     dataset = concatenate_h5_datasets(dataset_cls, dataset_opt)
+    # else:
+    dataset = dataset_cls(dataset_opt)
 
     logger = get_root_logger()
     logger.info(
