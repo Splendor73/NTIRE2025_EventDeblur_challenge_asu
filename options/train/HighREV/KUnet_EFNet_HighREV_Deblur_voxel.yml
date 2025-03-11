@@ -1,0 +1,138 @@
+# general settings
+name: KUnet_highrev_single_deblur_voxel
+model_type: ImageEventRestorationModel
+scale: 1
+num_gpu: 1  # Change to 1 to use GPU, set to 0 for CPU
+manual_seed: 10
+
+datasets:
+  train:
+    name: highrev-train
+    type: VoxelnpzPngSingleDeblurDataset
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/train
+    dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/train/voxel
+
+    gt_size: 256
+    norm_voxel: true
+    use_hflip: true
+    use_rot: true
+
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+    # data loader settings
+    use_shuffle: true
+    num_worker_per_gpu: 3
+    batch_size_per_gpu: 4  # 4 for 2080, 8 for titan
+    dataset_enlarge_ratio: 4  # accelerate, equals to the num_gpu
+    prefetch_mode: cpu
+    num_prefetch_queue: 2
+
+  val:
+    name: highrev-val
+    type: VoxelnpzPngSingleDeblurDataset
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
+
+    gt_size: ~
+    norm_voxel: true
+
+    io_backend:
+      type: disk
+
+    use_hflip: false
+    use_rot: false
+
+  test:
+    name: highrev-test
+    type: VoxelnpzPngSingleDeblurDataset
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
+
+    gt_size: ~
+    norm_voxel: true
+
+    io_backend:
+      type: disk
+
+    use_hflip: false
+    use_rot: false
+
+dataset_name: HighREV
+
+# network structures
+network_g:
+  type: KUnet
+  dimensions: 3
+  patch_size: 2
+  token_dim: 1024
+  tokenization: true
+  num_heads: 8
+  event_input_channels: 6  # Matches voxel dimensions from dataset (H, W, 6)
+
+# path
+path:
+  root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu
+  results_root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
+  log: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
+  visualization: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results/visualization
+  pretrain_network_g: ~ # Placeholder for pre-trained model if available
+  strict_load_g: true
+  resume_state: ~
+  training_states: ~ # Save training model states for resume
+
+# training settings
+train:
+  optim_g:
+    type: AdamW
+    lr: !!float 2e-4
+    weight_decay: !!float 1e-4
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: TrueCosineAnnealingLR
+    T_max: 200000
+    eta_min: !!float 1e-7
+
+  total_iter: 200000
+  warmup_iter: -1  # No warm-up
+
+  # losses
+  pixel_opt:
+    type: PSNRLoss
+    loss_weight: 0.5
+    reduction: mean
+
+# validation settings
+val:
+  val_freq: !!float 5e4  # Adjusted to validate every 50k iterations
+  save_img: true
+  grids: ~
+  crop_size: ~  # Use it if GPU memory is not enough for full image inference
+  max_minibatch: 8
+
+  metrics:
+    psnr:
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false
+
+# logging settings
+logger:
+  print_freq: 200
+  save_checkpoint_freq: !!float 2e4
+  use_tb_logger: true
+  wandb:
+    project: your_project_name
+    resume_id: x
+
+# distributed training settings
+dist_params:
+  backend: nccl
+  port: 29500

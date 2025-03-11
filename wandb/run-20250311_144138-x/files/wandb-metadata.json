@@ -1,0 +1,20 @@
+{
+  "os": "Linux-4.18.0-553.22.1.el8_10.x86_64-x86_64-with-glibc2.28",
+  "python": "CPython 3.9.21",
+  "startedAt": "2025-03-11T21:41:39.044831Z",
+  "args": [
+    "-opt",
+    "options/train/HighREV/KUnet_EFNet_HighREV_Deblur_voxel.yml"
+  ],
+  "program": "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py",
+  "codePath": "basicsr/train.py",
+  "git": {
+    "remote": "https://github.com/Splendor73/NTIRE2025_EventDeblur_challenge_asu.git",
+    "commit": "bf00783d5d8a3f05d7824736d246216ea3f4dfe9"
+  },
+  "email": "splendor7ed@gmail.com",
+  "root": "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu",
+  "host": "sg016",
+  "executable": "/home/ypatel37/.local/share/mamba/envs/ntire_env/bin/python3",
+  "codePathLocal": "basicsr/train.py"
+}
