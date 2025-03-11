@@ -36,18 +36,32 @@ def mkdir_and_rename(path):
 
 
 @master_only
+@master_only
 def make_exp_dirs(opt):
     """Make dirs for experiments."""
     path_opt = opt['path'].copy()
+    
+    print("DEBUG: opt['path'] contains:", path_opt)  # Debug print
+    
     if opt['is_train']:
-        mkdir_and_rename(path_opt.pop('experiments_root'))
+        if 'experiments_root' in path_opt:
+            mkdir_and_rename(path_opt.pop('experiments_root'))
+        else:
+            raise ValueError("Missing 'experiments_root' in YAML config!")
     else:
-        mkdir_and_rename(path_opt.pop('results_root'))
+        if 'results_root' in path_opt:
+            mkdir_and_rename(path_opt.pop('results_root'))
+        else:
+            raise ValueError("Missing 'results_root' in YAML config!")
+    
     for key, path in path_opt.items():
-        if ('strict_load' not in key) and ('pretrain_network'
+        print(f"DEBUG: Creating directory for {key}: {path}")  # Debug print
+        
+        if path is not None and ('strict_load' not in key) and ('pretrain_network'
                                            not in key) and ('resume'
                                                             not in key):
             os.makedirs(path, exist_ok=True)
+
 
 
 def scandir(dir_path, suffix=None, recursive=False, full_path=False):

@@ -2,21 +2,17 @@
 name: EFNet_highrev_single_deblur_voxel_debug  # add debug for quick debug
 model_type: ImageEventRestorationModel
 scale: 1
-num_gpu:  1 #4
+num_gpu: 1  # Change to 1 to use GPU, set to 0 for CPU
 manual_seed: 10
 
 datasets:
   train:
     name: highrev-train
     type: VoxelnpzPngSingleDeblurDataset
-
-    # dataroot: /work/lei_sun/HighREV/train
-    # dataroot_voxel: /work/lei_sun/HighREV_voxel/train/voxel
-    dataroot: /PATH/TO/DATASET/HighREV/train
-    dataroot_voxel: /PATH/TO/DATASET/HighREV_voxel/train/voxel
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/train
+    dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/train/voxel
 
     gt_size: 256
-    # keep true if use events
     norm_voxel: true
     use_hflip: true
     use_rot: true
@@ -24,31 +20,42 @@ datasets:
     filename_tmpl: '{}'
     io_backend:
       type: disk
-      
+
     # data loader settings
     use_shuffle: true
     num_worker_per_gpu: 3
     batch_size_per_gpu: 4 # 4 for 2080, 8 for titan
-    dataset_enlarge_ratio: 4  # accelarate, equals to the num_gpu
+    dataset_enlarge_ratio: 4  # accelerate, equals to the num_gpu
     prefetch_mode: cpu
     num_prefetch_queue: 2
 
   val:
     name: highrev-val
     type: VoxelnpzPngSingleDeblurDataset
-
-    # dataroot: /work/lei_sun/HighREV/val
-    # dataroot_voxel: /work/lei_sun/HighREV_voxel/val/voxel
-    dataroot: /PATH/TO/DATASET/HighREV/train
-    dataroot_voxel: /PATH/TO/DATASET/HighREV_voxel/train/voxel
-
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
 
     gt_size: ~
-    norm_voxel: true  
+    norm_voxel: true
 
     io_backend:
       type: disk
-    
+
+    use_hflip: false
+    use_rot: false
+
+  test:
+    name: highrev-test
+    type: VoxelnpzPngSingleDeblurDataset
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
+
+    gt_size: ~
+    norm_voxel: true
+
+    io_backend:
+      type: disk
+
     use_hflip: false
     use_rot: false
 
@@ -57,15 +64,19 @@ dataset_name: HighREV
 # network structures
 network_g:
   type: EFNet
-  wf: 64 
+  wf: 64
   fuse_before_downsample: true
 
 # path
 path:
-  pretrain_network_g: ~
+  root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu
+  results_root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
+  log: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
+  visualization: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results/visualization
+  pretrain_network_g: ~ # /experiments/pretrained_models/EFNet/EFNet_HighREV_Deblur_voxel.pth
   strict_load_g: true
   resume_state: ~
-  training_states: ~ # save current trainig model states, for resume
+  training_states: ~ # save current training model states, for resume
 
 # training settings
 train:
@@ -77,11 +88,11 @@ train:
 
   scheduler:
     type: TrueCosineAnnealingLR
-    T_max: 200000 
+    T_max: 200000
     eta_min: !!float 1e-7
 
   total_iter: 200000
-  warmup_iter: -1 # no warm up
+  warmup_iter: -1 # no warm-up
 
   # losses
   pixel_opt:
@@ -92,21 +103,21 @@ train:
 # validation settings
 val:
   val_freq: !!float 5e4 # 2e4
-  save_img: false  
-  grids: ~  
-  crop_size: ~ # use it of the gpu memory is not enough for whole image inference
-  max_minibatch: 8  
+  save_img: true
+  grids: ~
+  crop_size: ~ # use it if the GPU memory is not enough for whole image inference
+  max_minibatch: 8
 
   metrics:
     psnr:
       type: calculate_psnr
       crop_border: 0
       test_y_channel: false
-    
+
     ssim:
       type: calculate_ssim
       crop_border: 0
-      test_y_channel: false   
+      test_y_channel: false
 
 # logging settings
 logger:
