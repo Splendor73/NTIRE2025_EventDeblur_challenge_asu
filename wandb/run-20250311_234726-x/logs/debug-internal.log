@@ -6,3 +6,11 @@
 {"time":"2025-03-11T23:47:27.654841924-07:00","level":"INFO","msg":"sender: started","stream_id":"x"}
 {"time":"2025-03-11T23:47:28.110109155-07:00","level":"INFO","msg":"Starting system monitor"}
 {"time":"2025-03-11T23:47:38.491604672-07:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-03-12T00:01:08.56767734-07:00","level":"INFO","msg":"stream: closing","id":"x"}
+{"time":"2025-03-12T00:01:08.567707226-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-12T00:01:08.568591106-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-12T00:01:09.069333513-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-12T00:01:09.176735046-07:00","level":"INFO","msg":"handler: closed","stream_id":"x"}
+{"time":"2025-03-12T00:01:09.17676925-07:00","level":"INFO","msg":"sender: closed","stream_id":"x"}
+{"time":"2025-03-12T00:01:09.176764862-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"x"}
+{"time":"2025-03-12T00:01:09.178662325-07:00","level":"INFO","msg":"stream: closed","id":"x"}

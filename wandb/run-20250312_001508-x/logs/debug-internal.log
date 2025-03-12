@@ -1,0 +1,8 @@
+{"time":"2025-03-12T00:15:08.916670562-07:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/wandb/run-20250312_001508-x/logs/debug-core.log"}
+{"time":"2025-03-12T00:15:09.060944232-07:00","level":"INFO","msg":"created new stream","id":"x"}
+{"time":"2025-03-12T00:15:09.060986471-07:00","level":"INFO","msg":"stream: started","id":"x"}
+{"time":"2025-03-12T00:15:09.06759396-07:00","level":"INFO","msg":"handler: started","stream_id":"x"}
+{"time":"2025-03-12T00:15:09.067640637-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"x"}
+{"time":"2025-03-12T00:15:09.067701993-07:00","level":"INFO","msg":"sender: started","stream_id":"x"}
+{"time":"2025-03-12T00:15:09.47313728-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-12T00:15:19.59581865-07:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}

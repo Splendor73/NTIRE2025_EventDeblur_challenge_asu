@@ -1,23 +1,21 @@
-2025-03-11 23:47:28,452 INFO: Use wandb logger with id=x; project=your_project_name.
-2025-03-11 23:47:28,553 INFO: Dataset initialized with 1771 samples.
-2025-03-11 23:47:28,553 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-train is created.
-2025-03-11 23:47:28,554 INFO: Use cpu prefetch dataloader: num_prefetch_queue = 2
-/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 12 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
-  warnings.warn(_create_warning_msg(
-2025-03-11 23:47:28,556 INFO: Training statistics:
+2025-03-12 00:06:47,500 INFO: Use wandb logger with id=x; project=your_project_name.
+2025-03-12 00:06:47,568 INFO: Dataset initialized with 1771 samples.
+2025-03-12 00:06:47,568 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-train is created.
+2025-03-12 00:06:47,569 INFO: Use cpu prefetch dataloader: num_prefetch_queue = 2
+2025-03-12 00:06:47,571 INFO: Training statistics:
 	Number of train images: 1771
 	Dataset enlarge ratio: 4
 	Batch size per gpu: 4
 	World size (gpu number): 1
 	Require iter number per epoch: 1771
 	Total epochs: 113; iters: 200000.
-2025-03-11 23:47:28,573 INFO: Dataset initialized with 421 samples.
-2025-03-11 23:47:28,574 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-val is created.
-2025-03-11 23:47:28,574 INFO: Number of val images/folders in highrev-val: 421
-2025-03-11 23:47:28,575 WARNING: pretrain_network path will be ignored during resuming.
-2025-03-11 23:47:28,575 INFO: Set pretrain_network_g to /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth
-2025-03-11 23:47:31,026 INFO: Network: DataParallel - KUnet, with parameters: 140,943,581
-2025-03-11 23:47:31,026 INFO: KUnet(
+2025-03-12 00:06:47,586 INFO: Dataset initialized with 421 samples.
+2025-03-12 00:06:47,586 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-val is created.
+2025-03-12 00:06:47,586 INFO: Number of val images/folders in highrev-val: 421
+2025-03-12 00:06:47,588 WARNING: pretrain_network path will be ignored during resuming.
+2025-03-12 00:06:47,590 INFO: Set pretrain_network_g to /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth
+2025-03-12 00:06:50,238 INFO: Network: KUnet, with parameters: 140,943,581
+2025-03-12 00:06:50,238 INFO: KUnet(
   (down1): DownLayer(
     (conv): DoubleConv(
       (conv): Sequential(
@@ -293,24 +291,30 @@
   )
   (last_conv): Conv2d(64, 3, kernel_size=(1, 1), stride=(1, 1))
 )
-2025-03-11 23:47:31,027 INFO: Loading KUnet model from /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth.
- load net keys <built-in method keys of collections.OrderedDict object at 0x15547c083240>
+2025-03-12 00:06:50,238 INFO: Loading KUnet model from /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth.
+ load net keys <built-in method keys of collections.OrderedDict object at 0x15547cb64dc0>
 .. cosineannealingLR
-2025-03-11 23:47:31,519 INFO: Model [ImageEventRestorationModel] is created.
-2025-03-11 23:47:31,520 INFO: Resuming training from epoch: 399, iter: 20000.
-2025-03-11 23:47:33,793 INFO: Start training from epoch: 399, iter: 20000
+2025-03-12 00:06:50,709 INFO: Model [ImageEventRestorationModel] is created.
+2025-03-12 00:06:50,711 INFO: Resuming training from epoch: 399, iter: 20000.
+2025-03-12 00:06:51,134 INFO: Start training from epoch: 399, iter: 20000
 /home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/nn/modules/conv.py:456: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)
   return F.conv2d(input, weight, bias, self.stride,
-2025-03-11 23:57:30,736 INFO: [KUnet..][epoch:399, iter:  20,200, lr:(1.950e-04,1.950e-05,)] [eta: 6 days, 4:53:31, time (data): 2.616 (0.010)] l_pix: -1.6613e+01
+2025-03-12 00:07:40,643 INFO: [KUnet..][epoch:399, iter:  20,200, lr:(1.950e-04,1.950e-05,)] [eta: 12:24:24, time (data): 0.095 (0.003)] l_pix: -1.6739e+01
+2025-03-12 00:08:57,257 INFO: [KUnet..][epoch:399, iter:  20,400, lr:(1.949e-04,1.949e-05,)] [eta: 15:44:37, time (data): 0.096 (0.003)] l_pix: -1.7452e+01
+2025-03-12 00:09:59,496 INFO: [KUnet..][epoch:399, iter:  20,600, lr:(1.948e-04,1.948e-05,)] [eta: 15:39:12, time (data): 0.096 (0.003)] l_pix: -1.9027e+01
+2025-03-12 00:10:58,475 INFO: [KUnet..][epoch:399, iter:  20,800, lr:(1.947e-04,1.947e-05,)] [eta: 15:23:49, time (data): 0.857 (0.759)] l_pix: -1.7318e+01
+2025-03-12 00:11:55,032 INFO: [KUnet..][epoch:399, iter:  21,000, lr:(1.946e-04,1.946e-05,)] [eta: 15:06:58, time (data): 0.096 (0.003)] l_pix: -1.7939e+01
 Traceback (most recent call last):
   File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 276, in <module>
     main()
-  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 229, in main
-    model.optimize_parameters(current_iter)
-  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/models/image_event_restoration_model.py", line 319, in optimize_parameters
-    torch.nn.utils.clip_grad_norm_(self.net_g.parameters(), 0.01)
-  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/nn/utils/clip_grad.py", line 54, in clip_grad_norm_
-    if (foreach is None or foreach) and _has_foreach_support(grads, device=device):
-  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/_foreach_utils.py", line 47, in _has_foreach_support
-    if device.type not in set(_get_foreach_kernels_supported_devices() + ["cpu"]) or torch.jit.is_scripting():
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 255, in main
+    train_data = prefetcher.next()
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/data/prefetch_dataloader.py", line 76, in next
+    return next(self.loader)
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/data/prefetch_dataloader.py", line 31, in __next__
+    next_item = self.queue.get()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/queue.py", line 171, in get
+    self.not_empty.wait()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/threading.py", line 312, in wait
+    waiter.acquire()
 KeyboardInterrupt

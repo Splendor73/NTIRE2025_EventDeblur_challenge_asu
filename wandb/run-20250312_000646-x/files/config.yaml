@@ -1,0 +1,156 @@
+_wandb:
+    value:
+        cli_version: 0.19.8
+        m: []
+        python_version: 3.9.21
+        t:
+            "1":
+                - 1
+                - 41
+                - 49
+                - 55
+                - 63
+            "2":
+                - 1
+                - 41
+                - 49
+                - 55
+                - 63
+            "3":
+                - 5
+                - 13
+                - 14
+                - 16
+                - 23
+                - 35
+                - 55
+                - 62
+            "4": 3.9.21
+            "5": 0.19.8
+            "8":
+                - 5
+            "12": 0.19.8
+            "13": linux-x86_64
+dataset_name:
+    value: HighREV
+datasets:
+    value:
+        train:
+            batch_size_per_gpu: 4
+            dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/train
+            dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/train/voxel
+            dataset_enlarge_ratio: 4
+            filename_tmpl: '{}'
+            gt_size: 256
+            io_backend:
+                type: disk
+            name: highrev-train
+            norm_voxel: true
+            num_prefetch_queue: 2
+            num_worker_per_gpu: 3
+            phase: train
+            prefetch_mode: cpu
+            scale: 1
+            type: VoxelnpzPngSingleDeblurDataset
+            use_hflip: true
+            use_rot: true
+            use_shuffle: true
+        val:
+            dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+            dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
+            gt_size: null
+            io_backend:
+                type: disk
+            name: highrev-val
+            norm_voxel: true
+            phase: val
+            scale: 1
+            type: VoxelnpzPngSingleDeblurDataset
+            use_hflip: false
+            use_rot: false
+dist:
+    value: false
+dist_params:
+    value:
+        backend: nccl
+        port: 29500
+is_train:
+    value: true
+logger:
+    value:
+        print_freq: 200
+        save_checkpoint_freq: 20000
+        use_tb_logger: true
+        wandb:
+            project: your_project_name
+            resume_id: x
+manual_seed:
+    value: 10
+model_type:
+    value: ImageEventRestorationModel
+name:
+    value: KUnet_highrev_single_deblur_voxel
+network_g:
+    value:
+        dimensions: 3
+        event_input_channels: 6
+        num_heads: 8
+        patch_size: 2
+        token_dim: 1024
+        tokenization: true
+        type: KUnet
+num_gpu:
+    value: 1
+path:
+    value:
+        experiments_root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel
+        log: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel
+        models: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models
+        pretrain_network_g: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth
+        results_root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
+        resume_state: experiments/KUnet_highrev_single_deblur_voxel/training_states/20000.state
+        root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu
+        strict_load_g: true
+        training_states: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/training_states
+        visualization: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/visualization
+rank:
+    value: 0
+scale:
+    value: 1
+train:
+    value:
+        optim_g:
+            betas:
+                - 0.9
+                - 0.99
+            lr: 0.0002
+            type: AdamW
+            weight_decay: 0.0001
+        pixel_opt:
+            loss_weight: 0.5
+            reduction: mean
+            type: PSNRLoss
+        scheduler:
+            T_max: 200000
+            eta_min: 1e-07
+            type: TrueCosineAnnealingLR
+        total_iter: 200000
+        warmup_iter: -1
+val:
+    value:
+        crop_size: null
+        grids: null
+        max_minibatch: 8
+        metrics:
+            psnr:
+                crop_border: 0
+                test_y_channel: false
+                type: calculate_psnr
+            ssim:
+                crop_border: 0
+                test_y_channel: false
+                type: calculate_ssim
+        save_img: true
+        val_freq: 50000
+world_size:
+    value: 1

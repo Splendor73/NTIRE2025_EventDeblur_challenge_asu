@@ -22,3 +22,4 @@ config: {'name': 'KUnet_highrev_single_deblur_voxel', 'model_type': 'ImageEventR
 2025-03-11 23:47:28,444 INFO    MainThread:2060829 [wandb_run.py:_redirect():2315] Redirects installed.
 2025-03-11 23:47:28,451 INFO    MainThread:2060829 [wandb_init.py:init():1032] run started, returning control to user process
 2025-03-11 23:47:28,452 INFO    MainThread:2060829 [wandb_run.py:_tensorboard_callback():1449] tensorboard callback: tb_logger/KUnet_highrev_single_deblur_voxel, True
+2025-03-12 00:01:08,566 INFO    MsgRouterThr:2060829 [mailbox.py:close():129] Closing mailbox, abandoning 1 handles.

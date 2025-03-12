@@ -2,7 +2,7 @@
 name: KUnet_highrev_single_deblur_voxel
 model_type: ImageEventRestorationModel
 scale: 1
-num_gpu: 4  # Change to 1 to use GPU, set to 0 for CPU
+num_gpu: 4 # Change to 1 to use GPU, set to 0 for CPU
 manual_seed: 10
 
 datasets:
@@ -29,8 +29,8 @@ datasets:
     # data loader settings
     use_shuffle: true
     num_worker_per_gpu: 3
-    batch_size_per_gpu: 4 # 4 for 2080, 8 for titan
-    dataset_enlarge_ratio: 4  # accelarate, equals to the num_gpu
+    batch_size_per_gpu: 8 # 4 for 2080, 8 for titan
+    dataset_enlarge_ratio: 6 # accelarate, equals to the num_gpu
     prefetch_mode: cpu
     num_prefetch_queue: 2
 

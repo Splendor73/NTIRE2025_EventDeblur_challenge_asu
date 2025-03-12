@@ -1,23 +1,21 @@
-2025-03-11 23:47:28,452 INFO: Use wandb logger with id=x; project=your_project_name.
-2025-03-11 23:47:28,553 INFO: Dataset initialized with 1771 samples.
-2025-03-11 23:47:28,553 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-train is created.
-2025-03-11 23:47:28,554 INFO: Use cpu prefetch dataloader: num_prefetch_queue = 2
-/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 12 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
-  warnings.warn(_create_warning_msg(
-2025-03-11 23:47:28,556 INFO: Training statistics:
+2025-03-12 00:15:09,567 INFO: Use wandb logger with id=x; project=your_project_name.
+2025-03-12 00:15:09,655 INFO: Dataset initialized with 1771 samples.
+2025-03-12 00:15:09,655 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-train is created.
+2025-03-12 00:15:09,656 INFO: Use cpu prefetch dataloader: num_prefetch_queue = 2
+2025-03-12 00:15:09,656 INFO: Training statistics:
 	Number of train images: 1771
-	Dataset enlarge ratio: 4
-	Batch size per gpu: 4
-	World size (gpu number): 1
-	Require iter number per epoch: 1771
-	Total epochs: 113; iters: 200000.
-2025-03-11 23:47:28,573 INFO: Dataset initialized with 421 samples.
-2025-03-11 23:47:28,574 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-val is created.
-2025-03-11 23:47:28,574 INFO: Number of val images/folders in highrev-val: 421
-2025-03-11 23:47:28,575 WARNING: pretrain_network path will be ignored during resuming.
-2025-03-11 23:47:28,575 INFO: Set pretrain_network_g to /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth
-2025-03-11 23:47:31,026 INFO: Network: DataParallel - KUnet, with parameters: 140,943,581
-2025-03-11 23:47:31,026 INFO: KUnet(
+	Dataset enlarge ratio: 6
+	Batch size per gpu: 8
+	World size (gpu number): 4
+	Require iter number per epoch: 333
+	Total epochs: 601; iters: 200000.
+2025-03-12 00:15:09,670 INFO: Dataset initialized with 421 samples.
+2025-03-12 00:15:09,670 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-val is created.
+2025-03-12 00:15:09,670 INFO: Number of val images/folders in highrev-val: 421
+2025-03-12 00:15:09,670 WARNING: pretrain_network path will be ignored during resuming.
+2025-03-12 00:15:09,671 INFO: Set pretrain_network_g to /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth
+2025-03-12 00:15:15,932 INFO: Network: DistributedDataParallel - KUnet, with parameters: 140,943,581
+2025-03-12 00:15:15,933 INFO: KUnet(
   (down1): DownLayer(
     (conv): DoubleConv(
       (conv): Sequential(
@@ -293,24 +291,26 @@
   )
   (last_conv): Conv2d(64, 3, kernel_size=(1, 1), stride=(1, 1))
 )
-2025-03-11 23:47:31,027 INFO: Loading KUnet model from /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth.
- load net keys <built-in method keys of collections.OrderedDict object at 0x15547c083240>
+2025-03-12 00:15:15,934 INFO: Loading KUnet model from /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth.
+ load net keys <built-in method keys of collections.OrderedDict object at 0x1554882434c0>
 .. cosineannealingLR
-2025-03-11 23:47:31,519 INFO: Model [ImageEventRestorationModel] is created.
-2025-03-11 23:47:31,520 INFO: Resuming training from epoch: 399, iter: 20000.
-2025-03-11 23:47:33,793 INFO: Start training from epoch: 399, iter: 20000
+2025-03-12 00:15:16,575 INFO: Model [ImageEventRestorationModel] is created.
+2025-03-12 00:15:16,577 INFO: Resuming training from epoch: 399, iter: 20000.
+2025-03-12 00:15:33,049 INFO: Start training from epoch: 399, iter: 20000
 /home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/nn/modules/conv.py:456: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)
   return F.conv2d(input, weight, bias, self.stride,
-2025-03-11 23:57:30,736 INFO: [KUnet..][epoch:399, iter:  20,200, lr:(1.950e-04,1.950e-05,)] [eta: 6 days, 4:53:31, time (data): 2.616 (0.010)] l_pix: -1.6613e+01
-Traceback (most recent call last):
-  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 276, in <module>
-    main()
-  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 229, in main
-    model.optimize_parameters(current_iter)
-  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/models/image_event_restoration_model.py", line 319, in optimize_parameters
-    torch.nn.utils.clip_grad_norm_(self.net_g.parameters(), 0.01)
-  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/nn/utils/clip_grad.py", line 54, in clip_grad_norm_
-    if (foreach is None or foreach) and _has_foreach_support(grads, device=device):
-  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/_foreach_utils.py", line 47, in _has_foreach_support
-    if device.type not in set(_get_foreach_kernels_supported_devices() + ["cpu"]) or torch.jit.is_scripting():
-KeyboardInterrupt
+/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/autograd/__init__.py:251: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [3, 64, 1, 1], strides() = [64, 1, 64, 64]
+bucket_view.sizes() = [3, 64, 1, 1], strides() = [64, 1, 1, 1] (Triggered internally at ../torch/csrc/distributed/c10d/reducer.cpp:320.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+2025-03-12 00:21:54,387 INFO: [KUnet..][epoch:399, iter:  20,200, lr:(1.950e-04,1.950e-05,)] [eta: 4 days, 2:50:49, time (data): 0.224 (0.006)] l_pix: -1.7188e+01
+2025-03-12 00:27:42,161 INFO: [KUnet..][epoch:400, iter:  20,400, lr:(1.949e-04,1.949e-05,)] [eta: 3 days, 20:45:30, time (data): 1.748 (0.017)] l_pix: -1.6855e+01
+2025-03-12 00:33:04,114 INFO: [KUnet..][epoch:400, iter:  20,600, lr:(1.948e-04,1.948e-05,)] [eta: 3 days, 16:31:00, time (data): 0.308 (0.007)] l_pix: -1.7273e+01
+2025-03-12 00:38:44,235 INFO: [KUnet..][epoch:401, iter:  20,800, lr:(1.947e-04,1.947e-05,)] [eta: 3 days, 15:28:39, time (data): 0.345 (0.007)] l_pix: -1.6296e+01
+2025-03-12 00:44:16,966 INFO: [KUnet..][epoch:402, iter:  21,000, lr:(1.946e-04,1.946e-05,)] [eta: 3 days, 14:26:56, time (data): 3.827 (2.275)] l_pix: -1.7353e+01
+2025-03-12 00:49:56,379 INFO: [KUnet..][epoch:402, iter:  21,200, lr:(1.945e-04,1.945e-05,)] [eta: 3 days, 14:00:30, time (data): 0.356 (0.009)] l_pix: -1.6495e+01
+2025-03-12 00:55:45,681 INFO: [KUnet..][epoch:403, iter:  21,400, lr:(1.944e-04,1.944e-05,)] [eta: 3 days, 14:01:01, time (data): 2.633 (2.410)] l_pix: -1.8197e+01
+2025-03-12 01:01:08,218 INFO: [KUnet..][epoch:403, iter:  21,600, lr:(1.943e-04,1.943e-05,)] [eta: 3 days, 13:10:14, time (data): 0.259 (0.006)] l_pix: -1.8454e+01
+2025-03-12 01:06:50,768 INFO: [KUnet..][epoch:404, iter:  21,800, lr:(1.942e-04,1.942e-05,)] [eta: 3 days, 13:02:33, time (data): 2.933 (2.726)] l_pix: -1.8403e+01
+2025-03-12 01:12:03,294 INFO: [KUnet..][epoch:405, iter:  22,000, lr:(1.941e-04,1.941e-05,)] [eta: 3 days, 12:10:44, time (data): 0.315 (0.007)] l_pix: -1.7431e+01
+2025-03-12 01:17:42,442 INFO: [KUnet..][epoch:405, iter:  22,200, lr:(1.940e-04,1.940e-05,)] [eta: 3 days, 12:03:14, time (data): 4.677 (0.005)] l_pix: -1.8041e+01
