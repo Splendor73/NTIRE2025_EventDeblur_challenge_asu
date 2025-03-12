@@ -520,6 +520,10 @@ class KUnet(nn.Module):
         # Bottleneck process event features and fuse with bottleneck
         x5 = self.bottleneck(x4)
         event_features = self.event_encoder(event_data)
+#  added by ygp (March 11th)
+        if event_features.shape[2:] != x5.shape[2:]:
+            event_features = F.interpolate(event_features, size=x5.shape[2:], mode='bilinear', align_corners=False)
+# (till here)
         x5 = torch.cat([x5,event_features], dim = 1)
         x5 = self.fusion_layer(x5)
 

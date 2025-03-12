@@ -1,0 +1,439 @@
+2025-03-11 14:55:55,312 INFO: Use wandb logger with id=x; project=your_project_name.
+2025-03-11 14:55:55,317 INFO: Dataset initialized with 50 samples.
+2025-03-11 14:55:55,317 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-train is created.
+2025-03-11 14:55:55,317 INFO: Use cpu prefetch dataloader: num_prefetch_queue = 2
+2025-03-11 14:55:55,318 INFO: Training statistics:
+	Number of train images: 50
+	Dataset enlarge ratio: 4
+	Batch size per gpu: 4
+	World size (gpu number): 1
+	Require iter number per epoch: 50
+	Total epochs: 4000; iters: 200000.
+2025-03-11 14:55:55,320 INFO: Dataset initialized with 50 samples.
+2025-03-11 14:55:55,320 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-val is created.
+2025-03-11 14:55:55,320 INFO: Number of val images/folders in highrev-val: 50
+2025-03-11 14:55:58,205 INFO: Network: KUnet, with parameters: 140,943,581
+2025-03-11 14:55:58,205 INFO: KUnet(
+  (down1): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=3)
+          (pointwise): Conv2d(3, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          (pointwise): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (down2): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          (pointwise): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (down3): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (down4): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          (pointwise): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (bottleneck): DoubleConv(
+    (conv): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+        (pointwise): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ConvLayerNorm(
+        (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): ReLU(inplace=True)
+      (3): DepthwiseSeparableConv(
+        (depthwise): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024)
+        (pointwise): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (4): ConvLayerNorm(
+        (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): ReLU(inplace=True)
+    )
+  )
+  (event_encoder): EventEncoder(
+    (conv1): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(6, 6, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=6)
+        (pointwise): Conv2d(6, 64, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv2): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64)
+        (pointwise): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv3): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=128)
+        (pointwise): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv4): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=256)
+        (pointwise): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv5): DepthwiseSeparableConv(
+      (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+      (pointwise): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+  (fusion_layer): Conv2d(2048, 1024, kernel_size=(1, 1), stride=(1, 1))
+  (tokenizer): PatchTokenizer(
+    (proj): Conv2d(1024, 1024, kernel_size=(2, 2), stride=(2, 2))
+    (norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+  )
+  (self_attention): TokenSelfAttention(
+    (attention): MultiheadAttention(
+      (out_proj): NonDynamicallyQuantizableLinear(in_features=1024, out_features=1024, bias=True)
+    )
+    (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (ff): Sequential(
+      (0): Linear(in_features=1024, out_features=4096, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=4096, out_features=1024, bias=True)
+    )
+    (dropout): Dropout(p=0.1, inplace=False)
+  )
+  (token_projection1): KANLinear(
+    (base_activation): SiLU()
+  )
+  (token_projection2): KANLinear(
+    (base_activation): SiLU()
+  )
+  (token_projection3): KANLinear(
+    (base_activation): SiLU()
+  )
+  (up1): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(1024, 512, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024)
+          (pointwise): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          (pointwise): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (up2): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(512, 256, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          (pointwise): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (up3): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(256, 128, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (up4): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(128, 64, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          (pointwise): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (last_conv): Conv2d(64, 3, kernel_size=(1, 1), stride=(1, 1))
+)
+.. cosineannealingLR
+2025-03-11 14:55:58,207 INFO: Model [ImageEventRestorationModel] is created.
+2025-03-11 14:55:58,504 INFO: Start training from epoch: 0, iter: 0
+/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/nn/modules/conv.py:456: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)
+  return F.conv2d(input, weight, bias, self.stride,
+2025-03-11 14:56:45,532 INFO: [KUnet..][epoch:  3, iter:     200, lr:(2.000e-04,2.000e-05,)] [eta: 13:04:00, time (data): 0.097 (0.004)] l_pix: -1.3994e+01
+2025-03-11 14:57:23,100 INFO: [KUnet..][epoch:  7, iter:     400, lr:(2.000e-04,2.000e-05,)] [eta: 11:44:15, time (data): 0.343 (0.254)] l_pix: -1.5601e+01
+2025-03-11 14:58:02,191 INFO: [KUnet..][epoch: 11, iter:     600, lr:(2.000e-04,2.000e-05,)] [eta: 11:25:34, time (data): 0.094 (0.003)] l_pix: -1.4657e+01
+2025-03-11 14:58:40,345 INFO: [KUnet..][epoch: 15, iter:     800, lr:(2.000e-04,2.000e-05,)] [eta: 11:12:01, time (data): 0.095 (0.004)] l_pix: -1.6402e+01
+2025-03-11 14:59:18,490 INFO: [KUnet..][epoch: 19, iter:   1,000, lr:(2.000e-04,2.000e-05,)] [eta: 11:03:36, time (data): 0.090 (0.003)] l_pix: -1.6389e+01
+2025-03-11 14:59:57,167 INFO: [KUnet..][epoch: 23, iter:   1,200, lr:(2.000e-04,2.000e-05,)] [eta: 10:59:14, time (data): 0.271 (0.183)] l_pix: -1.6347e+01
+2025-03-11 15:00:34,487 INFO: [KUnet..][epoch: 27, iter:   1,400, lr:(2.000e-04,2.000e-05,)] [eta: 10:52:44, time (data): 0.149 (0.062)] l_pix: -1.6887e+01
+2025-03-11 15:01:11,951 INFO: [KUnet..][epoch: 31, iter:   1,600, lr:(2.000e-04,2.000e-05,)] [eta: 10:47:59, time (data): 0.091 (0.003)] l_pix: -1.7432e+01
+2025-03-11 15:01:50,916 INFO: [KUnet..][epoch: 35, iter:   1,800, lr:(2.000e-04,2.000e-05,)] [eta: 10:46:55, time (data): 0.291 (0.199)] l_pix: -1.6911e+01
+2025-03-11 15:02:28,571 INFO: [KUnet..][epoch: 39, iter:   2,000, lr:(2.000e-04,2.000e-05,)] [eta: 10:43:46, time (data): 0.293 (0.204)] l_pix: -1.6932e+01
+2025-03-11 15:03:06,998 INFO: [KUnet..][epoch: 43, iter:   2,200, lr:(1.999e-04,1.999e-05,)] [eta: 10:42:14, time (data): 0.094 (0.003)] l_pix: -1.8580e+01
+2025-03-11 15:03:45,539 INFO: [KUnet..][epoch: 47, iter:   2,400, lr:(1.999e-04,1.999e-05,)] [eta: 10:41:00, time (data): 0.098 (0.003)] l_pix: -1.6332e+01
+2025-03-11 15:04:24,893 INFO: [KUnet..][epoch: 51, iter:   2,600, lr:(1.999e-04,1.999e-05,)] [eta: 10:40:54, time (data): 0.096 (0.003)] l_pix: -1.8365e+01
+2025-03-11 15:05:04,405 INFO: [KUnet..][epoch: 55, iter:   2,800, lr:(1.999e-04,1.999e-05,)] [eta: 10:40:53, time (data): 0.093 (0.003)] l_pix: -1.8603e+01
+2025-03-11 15:05:43,588 INFO: [KUnet..][epoch: 59, iter:   3,000, lr:(1.999e-04,1.999e-05,)] [eta: 10:40:26, time (data): 0.090 (0.003)] l_pix: -1.5760e+01
+2025-03-11 15:06:22,687 INFO: [KUnet..][epoch: 63, iter:   3,200, lr:(1.999e-04,1.999e-05,)] [eta: 10:39:53, time (data): 0.244 (0.148)] l_pix: -1.8738e+01
+2025-03-11 15:07:02,397 INFO: [KUnet..][epoch: 67, iter:   3,400, lr:(1.999e-04,1.999e-05,)] [eta: 10:39:54, time (data): 0.091 (0.003)] l_pix: -1.8310e+01
+2025-03-11 15:07:42,307 INFO: [KUnet..][epoch: 71, iter:   3,600, lr:(1.998e-04,1.998e-05,)] [eta: 10:40:01, time (data): 0.093 (0.003)] l_pix: -1.9123e+01
+2025-03-11 15:08:22,006 INFO: [KUnet..][epoch: 75, iter:   3,800, lr:(1.998e-04,1.998e-05,)] [eta: 10:39:53, time (data): 0.093 (0.003)] l_pix: -1.8462e+01
+2025-03-11 15:09:02,061 INFO: [KUnet..][epoch: 79, iter:   4,000, lr:(1.998e-04,1.998e-05,)] [eta: 10:39:58, time (data): 0.092 (0.004)] l_pix: -1.8797e+01
+2025-03-11 15:09:41,771 INFO: [KUnet..][epoch: 83, iter:   4,200, lr:(1.998e-04,1.998e-05,)] [eta: 10:39:44, time (data): 0.098 (0.004)] l_pix: -2.0428e+01
+2025-03-11 15:10:20,748 INFO: [KUnet..][epoch: 87, iter:   4,400, lr:(1.998e-04,1.998e-05,)] [eta: 10:38:54, time (data): 0.406 (0.286)] l_pix: -1.9910e+01
+2025-03-11 15:11:00,753 INFO: [KUnet..][epoch: 91, iter:   4,600, lr:(1.997e-04,1.997e-05,)] [eta: 10:38:50, time (data): 0.097 (0.003)] l_pix: -1.8233e+01
+2025-03-11 15:11:41,240 INFO: [KUnet..][epoch: 95, iter:   4,800, lr:(1.997e-04,1.997e-05,)] [eta: 10:39:01, time (data): 0.093 (0.003)] l_pix: -1.9267e+01
+2025-03-11 15:12:21,011 INFO: [KUnet..][epoch: 99, iter:   5,000, lr:(1.997e-04,1.997e-05,)] [eta: 10:38:41, time (data): 0.337 (0.245)] l_pix: -1.8667e+01
+2025-03-11 15:13:00,685 INFO: [KUnet..][epoch:103, iter:   5,200, lr:(1.997e-04,1.997e-05,)] [eta: 10:38:16, time (data): 0.095 (0.004)] l_pix: -1.8786e+01
+2025-03-11 15:13:40,054 INFO: [KUnet..][epoch:107, iter:   5,400, lr:(1.996e-04,1.996e-05,)] [eta: 10:37:38, time (data): 0.325 (0.206)] l_pix: -1.9415e+01
+2025-03-11 15:14:18,298 INFO: [KUnet..][epoch:111, iter:   5,600, lr:(1.996e-04,1.996e-05,)] [eta: 10:36:21, time (data): 0.096 (0.003)] l_pix: -1.8074e+01
+2025-03-11 15:14:58,815 INFO: [KUnet..][epoch:115, iter:   5,800, lr:(1.996e-04,1.996e-05,)] [eta: 10:36:23, time (data): 0.093 (0.003)] l_pix: -1.8113e+01
+2025-03-11 15:15:37,864 INFO: [KUnet..][epoch:119, iter:   6,000, lr:(1.996e-04,1.996e-05,)] [eta: 10:35:35, time (data): 0.098 (0.004)] l_pix: -1.9082e+01
+2025-03-11 15:16:16,677 INFO: [KUnet..][epoch:123, iter:   6,200, lr:(1.995e-04,1.995e-05,)] [eta: 10:34:40, time (data): 0.362 (0.274)] l_pix: -2.0084e+01
+2025-03-11 15:16:54,945 INFO: [KUnet..][epoch:127, iter:   6,400, lr:(1.995e-04,1.995e-05,)] [eta: 10:33:30, time (data): 0.097 (0.004)] l_pix: -1.8409e+01
+2025-03-11 15:17:33,879 INFO: [KUnet..][epoch:131, iter:   6,600, lr:(1.995e-04,1.995e-05,)] [eta: 10:32:41, time (data): 0.345 (0.252)] l_pix: -1.9973e+01
+2025-03-11 15:18:12,811 INFO: [KUnet..][epoch:135, iter:   6,800, lr:(1.994e-04,1.994e-05,)] [eta: 10:31:52, time (data): 0.092 (0.003)] l_pix: -1.9076e+01
+2025-03-11 15:18:51,916 INFO: [KUnet..][epoch:139, iter:   7,000, lr:(1.994e-04,1.994e-05,)] [eta: 10:31:09, time (data): 0.091 (0.003)] l_pix: -1.9173e+01
+2025-03-11 15:19:30,064 INFO: [KUnet..][epoch:143, iter:   7,200, lr:(1.994e-04,1.994e-05,)] [eta: 10:30:00, time (data): 0.092 (0.003)] l_pix: -1.9007e+01
+2025-03-11 15:20:08,576 INFO: [KUnet..][epoch:147, iter:   7,400, lr:(1.993e-04,1.993e-05,)] [eta: 10:29:03, time (data): 0.186 (0.085)] l_pix: -1.8768e+01
+2025-03-11 15:20:48,164 INFO: [KUnet..][epoch:151, iter:   7,600, lr:(1.993e-04,1.993e-05,)] [eta: 10:28:34, time (data): 0.095 (0.003)] l_pix: -1.9699e+01
+2025-03-11 15:21:27,741 INFO: [KUnet..][epoch:155, iter:   7,800, lr:(1.993e-04,1.993e-05,)] [eta: 10:28:04, time (data): 0.416 (0.299)] l_pix: -1.7841e+01
+2025-03-11 15:22:05,483 INFO: [KUnet..][epoch:159, iter:   8,000, lr:(1.992e-04,1.992e-05,)] [eta: 10:26:49, time (data): 0.090 (0.003)] l_pix: -1.8716e+01
+2025-03-11 15:22:44,059 INFO: [KUnet..][epoch:163, iter:   8,200, lr:(1.992e-04,1.992e-05,)] [eta: 10:25:56, time (data): 0.362 (0.248)] l_pix: -2.0568e+01
+2025-03-11 15:23:24,311 INFO: [KUnet..][epoch:167, iter:   8,400, lr:(1.991e-04,1.991e-05,)] [eta: 10:25:42, time (data): 0.444 (0.351)] l_pix: -1.9508e+01
+2025-03-11 15:24:02,852 INFO: [KUnet..][epoch:171, iter:   8,600, lr:(1.991e-04,1.991e-05,)] [eta: 10:24:48, time (data): 0.102 (0.005)] l_pix: -1.9899e+01
+2025-03-11 15:24:43,883 INFO: [KUnet..][epoch:175, iter:   8,800, lr:(1.990e-04,1.991e-05,)] [eta: 10:24:49, time (data): 0.444 (0.342)] l_pix: -1.7669e+01
+2025-03-11 15:25:24,431 INFO: [KUnet..][epoch:179, iter:   9,000, lr:(1.990e-04,1.990e-05,)] [eta: 10:24:38, time (data): 0.406 (0.310)] l_pix: -2.0231e+01
+2025-03-11 15:26:02,935 INFO: [KUnet..][epoch:183, iter:   9,200, lr:(1.990e-04,1.990e-05,)] [eta: 10:23:44, time (data): 0.091 (0.003)] l_pix: -2.0560e+01
+2025-03-11 15:26:41,204 INFO: [KUnet..][epoch:187, iter:   9,400, lr:(1.989e-04,1.989e-05,)] [eta: 10:22:45, time (data): 0.100 (0.012)] l_pix: -1.8358e+01
+2025-03-11 15:27:20,008 INFO: [KUnet..][epoch:191, iter:   9,600, lr:(1.989e-04,1.989e-05,)] [eta: 10:21:58, time (data): 0.410 (0.322)] l_pix: -2.0770e+01
+2025-03-11 15:27:58,590 INFO: [KUnet..][epoch:195, iter:   9,800, lr:(1.988e-04,1.988e-05,)] [eta: 10:21:07, time (data): 0.166 (0.069)] l_pix: -1.8008e+01
+2025-03-11 15:28:37,571 INFO: [KUnet..][epoch:199, iter:  10,000, lr:(1.988e-04,1.988e-05,)] [eta: 10:20:23, time (data): 0.098 (0.004)] l_pix: -2.0379e+01
+2025-03-11 15:29:15,972 INFO: [KUnet..][epoch:203, iter:  10,200, lr:(1.987e-04,1.987e-05,)] [eta: 10:19:30, time (data): 0.321 (0.217)] l_pix: -1.8730e+01
+2025-03-11 15:29:53,541 INFO: [KUnet..][epoch:207, iter:  10,400, lr:(1.987e-04,1.987e-05,)] [eta: 10:18:21, time (data): 0.091 (0.003)] l_pix: -2.0110e+01
+2025-03-11 15:30:31,738 INFO: [KUnet..][epoch:211, iter:  10,600, lr:(1.986e-04,1.986e-05,)] [eta: 10:17:25, time (data): 0.092 (0.003)] l_pix: -1.9476e+01
+2025-03-11 15:31:09,321 INFO: [KUnet..][epoch:215, iter:  10,800, lr:(1.986e-04,1.986e-05,)] [eta: 10:16:19, time (data): 0.417 (0.326)] l_pix: -1.9764e+01
+2025-03-11 15:31:48,379 INFO: [KUnet..][epoch:219, iter:  11,000, lr:(1.985e-04,1.985e-05,)] [eta: 10:15:40, time (data): 0.097 (0.004)] l_pix: -1.9634e+01
+2025-03-11 15:32:27,811 INFO: [KUnet..][epoch:223, iter:  11,200, lr:(1.985e-04,1.985e-05,)] [eta: 10:15:06, time (data): 0.097 (0.003)] l_pix: -1.9623e+01
+2025-03-11 15:33:06,656 INFO: [KUnet..][epoch:227, iter:  11,400, lr:(1.984e-04,1.984e-05,)] [eta: 10:14:23, time (data): 0.096 (0.003)] l_pix: -1.9936e+01
+2025-03-11 15:33:45,948 INFO: [KUnet..][epoch:231, iter:  11,600, lr:(1.983e-04,1.984e-05,)] [eta: 10:13:47, time (data): 0.315 (0.204)] l_pix: -1.8826e+01
+2025-03-11 15:34:26,539 INFO: [KUnet..][epoch:235, iter:  11,800, lr:(1.983e-04,1.983e-05,)] [eta: 10:13:32, time (data): 0.340 (0.247)] l_pix: -1.8021e+01
+2025-03-11 15:35:07,052 INFO: [KUnet..][epoch:239, iter:  12,000, lr:(1.982e-04,1.982e-05,)] [eta: 10:13:15, time (data): 0.090 (0.003)] l_pix: -1.9232e+01
+2025-03-11 15:35:47,196 INFO: [KUnet..][epoch:243, iter:  12,200, lr:(1.982e-04,1.982e-05,)] [eta: 10:12:51, time (data): 0.096 (0.004)] l_pix: -1.8802e+01
+2025-03-11 15:36:26,839 INFO: [KUnet..][epoch:247, iter:  12,400, lr:(1.981e-04,1.981e-05,)] [eta: 10:12:19, time (data): 0.093 (0.003)] l_pix: -1.9580e+01
+2025-03-11 15:37:05,996 INFO: [KUnet..][epoch:251, iter:  12,600, lr:(1.980e-04,1.981e-05,)] [eta: 10:11:40, time (data): 0.093 (0.004)] l_pix: -1.9627e+01
+2025-03-11 15:37:44,517 INFO: [KUnet..][epoch:255, iter:  12,800, lr:(1.980e-04,1.980e-05,)] [eta: 10:10:51, time (data): 0.321 (0.227)] l_pix: -1.8778e+01
+2025-03-11 15:38:23,486 INFO: [KUnet..][epoch:259, iter:  13,000, lr:(1.979e-04,1.979e-05,)] [eta: 10:10:09, time (data): 0.283 (0.186)] l_pix: -2.1139e+01
+2025-03-11 15:39:02,967 INFO: [KUnet..][epoch:263, iter:  13,200, lr:(1.979e-04,1.979e-05,)] [eta: 10:09:35, time (data): 0.095 (0.003)] l_pix: -2.0950e+01
+2025-03-11 15:39:41,962 INFO: [KUnet..][epoch:267, iter:  13,400, lr:(1.978e-04,1.978e-05,)] [eta: 10:08:53, time (data): 0.284 (0.196)] l_pix: -1.9964e+01
+2025-03-11 15:40:20,854 INFO: [KUnet..][epoch:271, iter:  13,600, lr:(1.977e-04,1.977e-05,)] [eta: 10:08:11, time (data): 0.390 (0.278)] l_pix: -2.0793e+01
+2025-03-11 15:40:59,185 INFO: [KUnet..][epoch:275, iter:  13,800, lr:(1.977e-04,1.977e-05,)] [eta: 10:07:20, time (data): 0.094 (0.003)] l_pix: -1.8884e+01
+2025-03-11 15:41:39,285 INFO: [KUnet..][epoch:279, iter:  14,000, lr:(1.976e-04,1.976e-05,)] [eta: 10:06:54, time (data): 0.091 (0.003)] l_pix: -1.9292e+01
+2025-03-11 15:42:18,080 INFO: [KUnet..][epoch:283, iter:  14,200, lr:(1.975e-04,1.975e-05,)] [eta: 10:06:10, time (data): 0.283 (0.195)] l_pix: -2.0128e+01
+2025-03-11 15:42:56,531 INFO: [KUnet..][epoch:287, iter:  14,400, lr:(1.975e-04,1.975e-05,)] [eta: 10:05:22, time (data): 0.091 (0.004)] l_pix: -2.0043e+01
+2025-03-11 15:43:34,397 INFO: [KUnet..][epoch:291, iter:  14,600, lr:(1.974e-04,1.974e-05,)] [eta: 10:04:27, time (data): 0.313 (0.213)] l_pix: -1.9847e+01
+2025-03-11 15:44:13,694 INFO: [KUnet..][epoch:295, iter:  14,800, lr:(1.973e-04,1.973e-05,)] [eta: 10:03:50, time (data): 0.097 (0.003)] l_pix: -1.9677e+01
+2025-03-11 15:44:53,013 INFO: [KUnet..][epoch:299, iter:  15,000, lr:(1.972e-04,1.973e-05,)] [eta: 10:03:13, time (data): 0.312 (0.223)] l_pix: -2.0070e+01
+2025-03-11 15:45:32,786 INFO: [KUnet..][epoch:303, iter:  15,200, lr:(1.972e-04,1.972e-05,)] [eta: 10:02:42, time (data): 0.406 (0.310)] l_pix: -2.0663e+01
+2025-03-11 15:46:11,965 INFO: [KUnet..][epoch:307, iter:  15,400, lr:(1.971e-04,1.971e-05,)] [eta: 10:02:03, time (data): 0.091 (0.003)] l_pix: -1.9626e+01
+2025-03-11 15:46:50,946 INFO: [KUnet..][epoch:311, iter:  15,600, lr:(1.970e-04,1.970e-05,)] [eta: 10:01:22, time (data): 0.291 (0.202)] l_pix: -2.0675e+01
+2025-03-11 15:47:28,434 INFO: [KUnet..][epoch:315, iter:  15,800, lr:(1.969e-04,1.970e-05,)] [eta: 10:00:24, time (data): 0.353 (0.265)] l_pix: -1.9803e+01
+2025-03-11 15:48:07,380 INFO: [KUnet..][epoch:319, iter:  16,000, lr:(1.969e-04,1.969e-05,)] [eta: 9:59:43, time (data): 0.351 (0.258)] l_pix: -2.0114e+01
+2025-03-11 15:48:45,918 INFO: [KUnet..][epoch:323, iter:  16,200, lr:(1.968e-04,1.968e-05,)] [eta: 9:58:57, time (data): 0.090 (0.003)] l_pix: -1.9974e+01
+2025-03-11 15:49:24,558 INFO: [KUnet..][epoch:327, iter:  16,400, lr:(1.967e-04,1.967e-05,)] [eta: 9:58:13, time (data): 0.319 (0.229)] l_pix: -1.9903e+01
+2025-03-11 15:50:03,322 INFO: [KUnet..][epoch:331, iter:  16,600, lr:(1.966e-04,1.966e-05,)] [eta: 9:57:30, time (data): 0.381 (0.285)] l_pix: -1.9899e+01
+2025-03-11 15:50:41,515 INFO: [KUnet..][epoch:335, iter:  16,800, lr:(1.965e-04,1.966e-05,)] [eta: 9:56:41, time (data): 0.091 (0.003)] l_pix: -1.9863e+01
+2025-03-11 15:51:20,792 INFO: [KUnet..][epoch:339, iter:  17,000, lr:(1.965e-04,1.965e-05,)] [eta: 9:56:04, time (data): 0.094 (0.003)] l_pix: -1.9634e+01
+2025-03-11 15:51:59,916 INFO: [KUnet..][epoch:343, iter:  17,200, lr:(1.964e-04,1.964e-05,)] [eta: 9:55:25, time (data): 0.094 (0.004)] l_pix: -2.0230e+01
+2025-03-11 15:52:38,377 INFO: [KUnet..][epoch:347, iter:  17,400, lr:(1.963e-04,1.963e-05,)] [eta: 9:54:39, time (data): 0.091 (0.003)] l_pix: -1.9901e+01
+2025-03-11 15:53:17,529 INFO: [KUnet..][epoch:351, iter:  17,600, lr:(1.962e-04,1.962e-05,)] [eta: 9:54:01, time (data): 0.093 (0.003)] l_pix: -1.9697e+01
+2025-03-11 15:53:55,806 INFO: [KUnet..][epoch:355, iter:  17,800, lr:(1.961e-04,1.961e-05,)] [eta: 9:53:14, time (data): 0.091 (0.003)] l_pix: -2.0112e+01
+2025-03-11 15:54:34,306 INFO: [KUnet..][epoch:359, iter:  18,000, lr:(1.960e-04,1.960e-05,)] [eta: 9:52:29, time (data): 0.091 (0.004)] l_pix: -2.0142e+01
+2025-03-11 15:55:13,506 INFO: [KUnet..][epoch:363, iter:  18,200, lr:(1.959e-04,1.960e-05,)] [eta: 9:51:51, time (data): 0.092 (0.003)] l_pix: -2.0959e+01
+2025-03-11 15:55:53,131 INFO: [KUnet..][epoch:367, iter:  18,400, lr:(1.959e-04,1.959e-05,)] [eta: 9:51:18, time (data): 0.091 (0.003)] l_pix: -2.0291e+01
+2025-03-11 15:56:31,856 INFO: [KUnet..][epoch:371, iter:  18,600, lr:(1.958e-04,1.958e-05,)] [eta: 9:50:35, time (data): 0.092 (0.003)] l_pix: -2.0174e+01
+2025-03-11 15:57:12,165 INFO: [KUnet..][epoch:375, iter:  18,800, lr:(1.957e-04,1.957e-05,)] [eta: 9:50:08, time (data): 0.428 (0.322)] l_pix: -2.0480e+01
+2025-03-11 15:57:52,402 INFO: [KUnet..][epoch:379, iter:  19,000, lr:(1.956e-04,1.956e-05,)] [eta: 9:49:40, time (data): 0.092 (0.003)] l_pix: -2.0735e+01
+2025-03-11 15:58:31,978 INFO: [KUnet..][epoch:383, iter:  19,200, lr:(1.955e-04,1.955e-05,)] [eta: 9:49:05, time (data): 0.149 (0.062)] l_pix: -1.9348e+01
+2025-03-11 15:59:10,697 INFO: [KUnet..][epoch:387, iter:  19,400, lr:(1.954e-04,1.954e-05,)] [eta: 9:48:23, time (data): 0.333 (0.221)] l_pix: -1.9363e+01
+2025-03-11 15:59:49,289 INFO: [KUnet..][epoch:391, iter:  19,600, lr:(1.953e-04,1.953e-05,)] [eta: 9:47:39, time (data): 0.374 (0.273)] l_pix: -1.9507e+01
+2025-03-11 16:00:29,022 INFO: [KUnet..][epoch:395, iter:  19,800, lr:(1.952e-04,1.952e-05,)] [eta: 9:47:06, time (data): 0.105 (0.016)] l_pix: -1.9885e+01
+2025-03-11 16:01:08,052 INFO: [KUnet..][epoch:399, iter:  20,000, lr:(1.951e-04,1.951e-05,)] [eta: 9:46:26, time (data): 0.266 (0.174)] l_pix: -2.1198e+01
+2025-03-11 16:01:08,053 INFO: Saving models and training states.
+2025-03-11 16:01:52,001 INFO: [KUnet..][epoch:403, iter:  20,200, lr:(1.950e-04,1.950e-05,)] [eta: 9:46:30, time (data): 0.095 (0.004)] l_pix: -2.0810e+01
+2025-03-11 16:02:30,511 INFO: [KUnet..][epoch:407, iter:  20,400, lr:(1.949e-04,1.949e-05,)] [eta: 9:45:46, time (data): 0.096 (0.003)] l_pix: -2.0331e+01
+2025-03-11 16:03:13,086 INFO: [KUnet..][epoch:411, iter:  20,600, lr:(1.948e-04,1.948e-05,)] [eta: 9:45:36, time (data): 0.243 (0.152)] l_pix: -2.0843e+01
+2025-03-11 16:03:54,319 INFO: [KUnet..][epoch:415, iter:  20,800, lr:(1.947e-04,1.947e-05,)] [eta: 9:45:15, time (data): 0.323 (0.233)] l_pix: -2.0004e+01
+2025-03-11 16:04:33,704 INFO: [KUnet..][epoch:419, iter:  21,000, lr:(1.946e-04,1.946e-05,)] [eta: 9:44:37, time (data): 0.091 (0.003)] l_pix: -1.9264e+01
+2025-03-11 16:05:14,353 INFO: [KUnet..][epoch:423, iter:  21,200, lr:(1.945e-04,1.945e-05,)] [eta: 9:44:10, time (data): 0.323 (0.214)] l_pix: -2.1536e+01
+2025-03-11 16:05:54,593 INFO: [KUnet..][epoch:427, iter:  21,400, lr:(1.944e-04,1.944e-05,)] [eta: 9:43:40, time (data): 0.410 (0.321)] l_pix: -2.0255e+01
+2025-03-11 16:06:34,832 INFO: [KUnet..][epoch:431, iter:  21,600, lr:(1.943e-04,1.943e-05,)] [eta: 9:43:09, time (data): 0.354 (0.259)] l_pix: -2.0100e+01
+2025-03-11 16:07:14,743 INFO: [KUnet..][epoch:435, iter:  21,800, lr:(1.942e-04,1.942e-05,)] [eta: 9:42:35, time (data): 0.185 (0.095)] l_pix: -2.0680e+01
+2025-03-11 16:07:54,532 INFO: [KUnet..][epoch:439, iter:  22,000, lr:(1.941e-04,1.941e-05,)] [eta: 9:42:01, time (data): 0.190 (0.098)] l_pix: -2.0514e+01
+2025-03-11 16:08:34,827 INFO: [KUnet..][epoch:443, iter:  22,200, lr:(1.940e-04,1.940e-05,)] [eta: 9:41:30, time (data): 0.409 (0.297)] l_pix: -2.0163e+01
+2025-03-11 16:09:13,975 INFO: [KUnet..][epoch:447, iter:  22,400, lr:(1.939e-04,1.939e-05,)] [eta: 9:40:50, time (data): 0.091 (0.003)] l_pix: -2.0218e+01
+2025-03-11 16:09:53,918 INFO: [KUnet..][epoch:451, iter:  22,600, lr:(1.938e-04,1.938e-05,)] [eta: 9:40:16, time (data): 0.364 (0.276)] l_pix: -2.0257e+01
+2025-03-11 16:10:33,833 INFO: [KUnet..][epoch:455, iter:  22,800, lr:(1.937e-04,1.937e-05,)] [eta: 9:39:42, time (data): 0.092 (0.003)] l_pix: -2.0076e+01
+2025-03-11 16:11:13,114 INFO: [KUnet..][epoch:459, iter:  23,000, lr:(1.935e-04,1.936e-05,)] [eta: 9:39:03, time (data): 0.227 (0.139)] l_pix: -2.0906e+01
+2025-03-11 16:11:51,730 INFO: [KUnet..][epoch:463, iter:  23,200, lr:(1.934e-04,1.935e-05,)] [eta: 9:38:19, time (data): 0.091 (0.003)] l_pix: -2.0608e+01
+2025-03-11 16:12:30,772 INFO: [KUnet..][epoch:467, iter:  23,400, lr:(1.933e-04,1.934e-05,)] [eta: 9:37:38, time (data): 0.318 (0.202)] l_pix: -2.0075e+01
+2025-03-11 16:13:09,064 INFO: [KUnet..][epoch:471, iter:  23,600, lr:(1.932e-04,1.932e-05,)] [eta: 9:36:52, time (data): 0.091 (0.003)] l_pix: -2.0645e+01
+2025-03-11 16:13:47,420 INFO: [KUnet..][epoch:475, iter:  23,800, lr:(1.931e-04,1.931e-05,)] [eta: 9:36:06, time (data): 0.374 (0.285)] l_pix: -1.9578e+01
+2025-03-11 16:14:26,739 INFO: [KUnet..][epoch:479, iter:  24,000, lr:(1.930e-04,1.930e-05,)] [eta: 9:35:27, time (data): 0.094 (0.003)] l_pix: -2.1169e+01
+2025-03-11 16:15:05,520 INFO: [KUnet..][epoch:483, iter:  24,200, lr:(1.929e-04,1.929e-05,)] [eta: 9:34:45, time (data): 0.095 (0.004)] l_pix: -2.0910e+01
+2025-03-11 16:15:43,899 INFO: [KUnet..][epoch:487, iter:  24,400, lr:(1.927e-04,1.928e-05,)] [eta: 9:33:59, time (data): 0.410 (0.308)] l_pix: -1.9413e+01
+2025-03-11 16:16:23,616 INFO: [KUnet..][epoch:491, iter:  24,600, lr:(1.926e-04,1.927e-05,)] [eta: 9:33:23, time (data): 0.098 (0.005)] l_pix: -2.1637e+01
+2025-03-11 16:17:02,027 INFO: [KUnet..][epoch:495, iter:  24,800, lr:(1.925e-04,1.925e-05,)] [eta: 9:32:38, time (data): 0.319 (0.226)] l_pix: -2.0836e+01
+2025-03-11 16:17:40,776 INFO: [KUnet..][epoch:499, iter:  25,000, lr:(1.924e-04,1.924e-05,)] [eta: 9:31:56, time (data): 0.395 (0.307)] l_pix: -1.9164e+01
+2025-03-11 16:18:19,903 INFO: [KUnet..][epoch:503, iter:  25,200, lr:(1.923e-04,1.923e-05,)] [eta: 9:31:16, time (data): 0.092 (0.003)] l_pix: -2.0749e+01
+2025-03-11 16:18:59,989 INFO: [KUnet..][epoch:507, iter:  25,400, lr:(1.922e-04,1.922e-05,)] [eta: 9:30:43, time (data): 0.325 (0.236)] l_pix: -2.1144e+01
+2025-03-11 16:19:40,516 INFO: [KUnet..][epoch:511, iter:  25,600, lr:(1.920e-04,1.921e-05,)] [eta: 9:30:12, time (data): 0.312 (0.192)] l_pix: -2.0681e+01
+2025-03-11 16:20:19,839 INFO: [KUnet..][epoch:515, iter:  25,800, lr:(1.919e-04,1.919e-05,)] [eta: 9:29:34, time (data): 0.344 (0.256)] l_pix: -2.0278e+01
+2025-03-11 16:20:58,806 INFO: [KUnet..][epoch:519, iter:  26,000, lr:(1.918e-04,1.918e-05,)] [eta: 9:28:53, time (data): 0.092 (0.003)] l_pix: -2.1404e+01
+Traceback (most recent call last):
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 276, in <module>
+    main()
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 229, in main
+    model.optimize_parameters(current_iter)
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/models/image_event_restoration_model.py", line 316, in optimize_parameters
+    l_total.backward()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/_tensor.py", line 492, in backward
+    torch.autograd.backward(
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/autograd/__init__.py", line 251, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
