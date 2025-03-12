@@ -49,20 +49,20 @@ datasets:
     use_hflip: false
     use_rot: false
 
-  # test:
-  #   name: highrev-test
-  #   type: VoxelnpzPngSingleDeblurDataset
-  #   dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
-  #   dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
+  test:
+    name: highrev-test
+    type: VoxelnpzPngSingleDeblurDataset
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
 
-  #   gt_size: ~
-  #   norm_voxel: true
+    gt_size: ~
+    norm_voxel: true
 
-  #   io_backend:
-  #     type: disk
+    io_backend:
+      type: disk
 
-  #   use_hflip: false
-  #   use_rot: false
+    use_hflip: false
+    use_rot: false
 
 dataset_name: HighREV
 

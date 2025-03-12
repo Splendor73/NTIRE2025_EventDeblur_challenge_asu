@@ -6,6 +6,7 @@ __pycache__/
 *.pyc
 experiments/
 datasets/
+datasets_back/
 results/
 *.env
 *.env.*results/
