@@ -13,7 +13,7 @@ results/
 
 /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results/
 
-/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/model_zoo
+/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/model_zoo/
 
 # Model weights
 *.pth
