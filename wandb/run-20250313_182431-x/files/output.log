@@ -1,0 +1,337 @@
+2025-03-13 18:24:33,253 INFO: Use wandb logger with id=x; project=your_project_name.
+2025-03-13 18:24:33,334 INFO: Dataset initialized with 1771 samples.
+2025-03-13 18:24:33,334 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-train is created.
+2025-03-13 18:24:33,334 INFO: Use cpu prefetch dataloader: num_prefetch_queue = 2
+2025-03-13 18:24:33,335 INFO: Training statistics:
+	Number of train images: 1771
+	Dataset enlarge ratio: 6
+	Batch size per gpu: 8
+	World size (gpu number): 4
+	Require iter number per epoch: 333
+	Total epochs: 601; iters: 200000.
+2025-03-13 18:24:33,348 INFO: Dataset initialized with 421 samples.
+2025-03-13 18:24:33,348 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-val is created.
+2025-03-13 18:24:33,348 INFO: Number of val images/folders in highrev-val: 421
+2025-03-13 18:24:33,349 WARNING: pretrain_network path will be ignored during resuming.
+2025-03-13 18:24:33,349 INFO: Set pretrain_network_g to /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_60000.pth
+2025-03-13 18:24:39,265 INFO: Network: DistributedDataParallel - KUnet, with parameters: 140,943,581
+2025-03-13 18:24:39,266 INFO: KUnet(
+  (down1): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=3)
+          (pointwise): Conv2d(3, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          (pointwise): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (down2): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          (pointwise): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (down3): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (down4): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          (pointwise): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (bottleneck): DoubleConv(
+    (conv): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+        (pointwise): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ConvLayerNorm(
+        (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): ReLU(inplace=True)
+      (3): DepthwiseSeparableConv(
+        (depthwise): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024)
+        (pointwise): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (4): ConvLayerNorm(
+        (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): ReLU(inplace=True)
+    )
+  )
+  (event_encoder): EventEncoder(
+    (conv1): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(6, 6, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=6)
+        (pointwise): Conv2d(6, 64, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv2): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64)
+        (pointwise): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv3): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=128)
+        (pointwise): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv4): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=256)
+        (pointwise): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv5): DepthwiseSeparableConv(
+      (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+      (pointwise): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+  (fusion_layer): Conv2d(2048, 1024, kernel_size=(1, 1), stride=(1, 1))
+  (tokenizer): PatchTokenizer(
+    (proj): Conv2d(1024, 1024, kernel_size=(2, 2), stride=(2, 2))
+    (norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+  )
+  (self_attention): TokenSelfAttention(
+    (attention): MultiheadAttention(
+      (out_proj): NonDynamicallyQuantizableLinear(in_features=1024, out_features=1024, bias=True)
+    )
+    (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (ff): Sequential(
+      (0): Linear(in_features=1024, out_features=4096, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=4096, out_features=1024, bias=True)
+    )
+    (dropout): Dropout(p=0.1, inplace=False)
+  )
+  (token_projection1): KANLinear(
+    (base_activation): SiLU()
+  )
+  (token_projection2): KANLinear(
+    (base_activation): SiLU()
+  )
+  (token_projection3): KANLinear(
+    (base_activation): SiLU()
+  )
+  (up1): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(1024, 512, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024)
+          (pointwise): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          (pointwise): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (up2): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(512, 256, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          (pointwise): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (up3): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(256, 128, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (up4): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(128, 64, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          (pointwise): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (last_conv): Conv2d(64, 3, kernel_size=(1, 1), stride=(1, 1))
+)
+2025-03-13 18:24:39,268 INFO: Loading KUnet model from /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_60000.pth.
+ load net keys <built-in method keys of collections.OrderedDict object at 0x1554882444c0>
+.. cosineannealingLR
+2025-03-13 18:24:40,151 INFO: Model [ImageEventRestorationModel] is created.
+2025-03-13 18:24:40,153 INFO: Resuming training from epoch: 519, iter: 60000.
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/linecache.py", line 46, in getlines
+    return updatecache(filename, module_globals)
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/linecache.py", line 136, in updatecache
+    with tokenize.open(fullname) as fp:
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/tokenize.py", line 392, in open
+    buffer = _builtin_open(filename, 'rb')
+KeyboardInterrupt
+
+Original exception was:
+Traceback (most recent call last):
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 276, in <module>
+    main()
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 195, in main
+    prefetcher = CPUPrefetcher(train_loader)
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/data/prefetch_dataloader.py", line 72, in __init__
+    self.loader = iter(loader)
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/data/prefetch_dataloader.py", line 60, in __iter__
+    return PrefetchGenerator(super().__iter__(), self.num_prefetch_queue)
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 438, in __iter__
+    return self._get_iterator()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 386, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1039, in __init__
+    w.start()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/multiprocessing/context.py", line 284, in _Popen
+    return Popen(process_obj)
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/multiprocessing/popen_spawn_posix.py", line 32, in __init__
+    super().__init__(process_obj)
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/multiprocessing/popen_spawn_posix.py", line 62, in _launch
+    f.write(fp.getbuffer())
+KeyboardInterrupt

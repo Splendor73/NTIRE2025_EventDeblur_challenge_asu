@@ -314,3 +314,118 @@ bucket_view.sizes() = [3, 64, 1, 1], strides() = [64, 1, 1, 1] (Triggered intern
 2025-03-12 01:06:50,768 INFO: [KUnet..][epoch:404, iter:  21,800, lr:(1.942e-04,1.942e-05,)] [eta: 3 days, 13:02:33, time (data): 2.933 (2.726)] l_pix: -1.8403e+01
 2025-03-12 01:12:03,294 INFO: [KUnet..][epoch:405, iter:  22,000, lr:(1.941e-04,1.941e-05,)] [eta: 3 days, 12:10:44, time (data): 0.315 (0.007)] l_pix: -1.7431e+01
 2025-03-12 01:17:42,442 INFO: [KUnet..][epoch:405, iter:  22,200, lr:(1.940e-04,1.940e-05,)] [eta: 3 days, 12:03:14, time (data): 4.677 (0.005)] l_pix: -1.8041e+01
+2025-03-12 01:23:44,413 INFO: [KUnet..][epoch:406, iter:  22,400, lr:(1.939e-04,1.939e-05,)] [eta: 3 days, 12:24:11, time (data): 0.216 (0.026)] l_pix: -1.7657e+01
+2025-03-12 01:29:19,906 INFO: [KUnet..][epoch:406, iter:  22,600, lr:(1.938e-04,1.938e-05,)] [eta: 3 days, 12:10:53, time (data): 0.364 (0.007)] l_pix: -1.7740e+01
+2025-03-12 01:34:58,948 INFO: [KUnet..][epoch:407, iter:  22,800, lr:(1.937e-04,1.937e-05,)] [eta: 3 days, 12:02:25, time (data): 0.393 (0.015)] l_pix: -1.6668e+01
+2025-03-12 01:40:26,220 INFO: [KUnet..][epoch:408, iter:  23,000, lr:(1.935e-04,1.936e-05,)] [eta: 3 days, 11:42:46, time (data): 0.289 (0.021)] l_pix: -1.8151e+01
+2025-03-12 01:45:54,281 INFO: [KUnet..][epoch:408, iter:  23,200, lr:(1.934e-04,1.935e-05,)] [eta: 3 days, 11:25:37, time (data): 1.600 (0.009)] l_pix: -1.7511e+01
+2025-03-12 01:51:34,513 INFO: [KUnet..][epoch:409, iter:  23,400, lr:(1.933e-04,1.934e-05,)] [eta: 3 days, 11:20:22, time (data): 0.309 (0.007)] l_pix: -1.7026e+01
+2025-03-12 01:56:50,366 INFO: [KUnet..][epoch:409, iter:  23,600, lr:(1.932e-04,1.932e-05,)] [eta: 3 days, 10:55:11, time (data): 0.298 (0.006)] l_pix: -1.8376e+01
+2025-03-12 02:02:21,497 INFO: [KUnet..][epoch:410, iter:  23,800, lr:(1.931e-04,1.931e-05,)] [eta: 3 days, 10:43:53, time (data): 0.328 (0.006)] l_pix: -1.6497e+01
+2025-03-12 02:07:54,878 INFO: [KUnet..][epoch:411, iter:  24,000, lr:(1.930e-04,1.930e-05,)] [eta: 3 days, 10:34:49, time (data): 2.354 (0.919)] l_pix: -1.7778e+01
+2025-03-12 02:13:07,742 INFO: [KUnet..][epoch:411, iter:  24,200, lr:(1.929e-04,1.929e-05,)] [eta: 3 days, 10:11:46, time (data): 1.818 (1.627)] l_pix: -1.6379e+01
+2025-03-12 02:18:46,765 INFO: [KUnet..][epoch:412, iter:  24,400, lr:(1.927e-04,1.928e-05,)] [eta: 3 days, 10:07:44, time (data): 4.472 (0.008)] l_pix: -1.7947e+01
+2025-03-12 02:24:07,026 INFO: [KUnet..][epoch:412, iter:  24,600, lr:(1.926e-04,1.927e-05,)] [eta: 3 days, 9:51:39, time (data): 3.362 (3.011)] l_pix: -1.7895e+01
+2025-03-12 02:29:34,103 INFO: [KUnet..][epoch:413, iter:  24,800, lr:(1.925e-04,1.925e-05,)] [eta: 3 days, 9:40:36, time (data): 0.347 (0.006)] l_pix: -1.6707e+01
+2025-03-12 02:34:43,123 INFO: [KUnet..][epoch:414, iter:  25,000, lr:(1.924e-04,1.924e-05,)] [eta: 3 days, 9:19:28, time (data): 1.386 (0.007)] l_pix: -1.5218e+01
+2025-03-12 02:40:02,898 INFO: [KUnet..][epoch:414, iter:  25,200, lr:(1.923e-04,1.923e-05,)] [eta: 3 days, 9:05:36, time (data): 0.216 (0.006)] l_pix: -1.7854e+01
+2025-03-12 02:45:35,452 INFO: [KUnet..][epoch:415, iter:  25,400, lr:(1.922e-04,1.922e-05,)] [eta: 3 days, 8:59:14, time (data): 0.296 (0.006)] l_pix: -1.7543e+01
+2025-03-12 02:51:01,287 INFO: [KUnet..][epoch:415, iter:  25,600, lr:(1.920e-04,1.921e-05,)] [eta: 3 days, 8:49:27, time (data): 1.622 (0.006)] l_pix: -1.7491e+01
+2025-03-12 02:56:37,929 INFO: [KUnet..][epoch:416, iter:  25,800, lr:(1.919e-04,1.919e-05,)] [eta: 3 days, 8:45:22, time (data): 0.231 (0.006)] l_pix: -1.8191e+01
+2025-03-12 03:02:04,631 INFO: [KUnet..][epoch:417, iter:  26,000, lr:(1.918e-04,1.918e-05,)] [eta: 3 days, 8:36:23, time (data): 0.253 (0.016)] l_pix: -1.7095e+01
+2025-03-12 03:07:14,290 INFO: [KUnet..][epoch:417, iter:  26,200, lr:(1.917e-04,1.917e-05,)] [eta: 3 days, 8:19:40, time (data): 0.299 (0.006)] l_pix: -1.7408e+01
+2025-03-12 03:13:03,852 INFO: [KUnet..][epoch:418, iter:  26,400, lr:(1.915e-04,1.916e-05,)] [eta: 3 days, 8:21:42, time (data): 5.236 (0.006)] l_pix: -1.8048e+01
+2025-03-12 03:18:41,684 INFO: [KUnet..][epoch:418, iter:  26,600, lr:(1.914e-04,1.914e-05,)] [eta: 3 days, 8:18:08, time (data): 0.481 (0.055)] l_pix: -1.6815e+01
+2025-03-12 03:24:03,057 INFO: [KUnet..][epoch:419, iter:  26,800, lr:(1.913e-04,1.913e-05,)] [eta: 3 days, 8:07:27, time (data): 0.319 (0.006)] l_pix: -1.8855e+01
+2025-03-12 03:29:21,453 INFO: [KUnet..][epoch:420, iter:  27,000, lr:(1.911e-04,1.912e-05,)] [eta: 3 days, 7:55:52, time (data): 0.694 (0.483)] l_pix: -1.7627e+01
+2025-03-12 03:34:44,947 INFO: [KUnet..][epoch:420, iter:  27,200, lr:(1.910e-04,1.911e-05,)] [eta: 3 days, 7:46:39, time (data): 2.432 (0.007)] l_pix: -1.8499e+01
+2025-03-12 03:40:11,555 INFO: [KUnet..][epoch:421, iter:  27,400, lr:(1.909e-04,1.909e-05,)] [eta: 3 days, 7:38:51, time (data): 0.319 (0.022)] l_pix: -1.7993e+01
+2025-03-12 03:45:08,439 INFO: [KUnet..][epoch:421, iter:  27,600, lr:(1.908e-04,1.908e-05,)] [eta: 3 days, 7:19:57, time (data): 0.377 (0.007)] l_pix: -1.6920e+01
+2025-03-12 03:50:39,917 INFO: [KUnet..][epoch:422, iter:  27,800, lr:(1.906e-04,1.907e-05,)] [eta: 3 days, 7:14:29, time (data): 0.304 (0.018)] l_pix: -1.8051e+01
+2025-03-12 03:56:30,348 INFO: [KUnet..][epoch:423, iter:  28,000, lr:(1.905e-04,1.905e-05,)] [eta: 3 days, 7:15:48, time (data): 0.276 (0.006)] l_pix: -1.7943e+01
+2025-03-12 04:01:56,621 INFO: [KUnet..][epoch:423, iter:  28,200, lr:(1.904e-04,1.904e-05,)] [eta: 3 days, 7:08:21, time (data): 1.046 (0.856)] l_pix: -1.6528e+01
+2025-03-12 04:07:19,190 INFO: [KUnet..][epoch:424, iter:  28,400, lr:(1.902e-04,1.903e-05,)] [eta: 3 days, 6:59:43, time (data): 0.327 (0.013)] l_pix: -1.7414e+01
+2025-03-12 04:12:18,428 INFO: [KUnet..][epoch:424, iter:  28,600, lr:(1.901e-04,1.901e-05,)] [eta: 3 days, 6:43:30, time (data): 0.314 (0.005)] l_pix: -1.7334e+01
+2025-03-12 04:17:52,617 INFO: [KUnet..][epoch:425, iter:  28,800, lr:(1.899e-04,1.900e-05,)] [eta: 3 days, 6:39:07, time (data): 1.708 (0.006)] l_pix: -1.7742e+01
+2025-03-12 04:23:09,992 INFO: [KUnet..][epoch:426, iter:  29,000, lr:(1.898e-04,1.899e-05,)] [eta: 3 days, 6:29:21, time (data): 0.251 (0.005)] l_pix: -1.7378e+01
+2025-03-12 04:28:26,304 INFO: [KUnet..][epoch:426, iter:  29,200, lr:(1.897e-04,1.897e-05,)] [eta: 3 days, 6:19:28, time (data): 4.100 (3.897)] l_pix: -1.7370e+01
+2025-03-12 04:33:52,077 INFO: [KUnet..][epoch:427, iter:  29,400, lr:(1.895e-04,1.896e-05,)] [eta: 3 days, 6:12:38, time (data): 0.308 (0.009)] l_pix: -1.7252e+01
+2025-03-12 04:38:50,670 INFO: [KUnet..][epoch:427, iter:  29,600, lr:(1.894e-04,1.894e-05,)] [eta: 3 days, 5:57:49, time (data): 0.299 (0.005)] l_pix: -1.7806e+01
+2025-03-12 04:44:39,142 INFO: [KUnet..][epoch:428, iter:  29,800, lr:(1.892e-04,1.893e-05,)] [eta: 3 days, 5:57:50, time (data): 4.661 (0.012)] l_pix: -1.7223e+01
+2025-03-12 04:50:06,313 INFO: [KUnet..][epoch:429, iter:  30,000, lr:(1.891e-04,1.892e-05,)] [eta: 3 days, 5:51:35, time (data): 4.066 (3.861)] l_pix: -1.8032e+01
+2025-03-12 04:55:09,852 INFO: [KUnet..][epoch:429, iter:  30,200, lr:(1.890e-04,1.890e-05,)] [eta: 3 days, 5:38:49, time (data): 0.267 (0.006)] l_pix: -1.8415e+01
+2025-03-12 05:00:36,594 INFO: [KUnet..][epoch:430, iter:  30,400, lr:(1.888e-04,1.889e-05,)] [eta: 3 days, 5:32:39, time (data): 0.221 (0.026)] l_pix: -1.7509e+01
+2025-03-12 05:05:33,061 INFO: [KUnet..][epoch:430, iter:  30,600, lr:(1.887e-04,1.887e-05,)] [eta: 3 days, 5:18:27, time (data): 0.659 (0.007)] l_pix: -1.7514e+01
+2025-03-12 05:11:06,407 INFO: [KUnet..][epoch:431, iter:  30,800, lr:(1.885e-04,1.886e-05,)] [eta: 3 days, 5:14:13, time (data): 0.734 (0.010)] l_pix: -1.8205e+01
+2025-03-12 05:16:54,803 INFO: [KUnet..][epoch:432, iter:  31,000, lr:(1.884e-04,1.884e-05,)] [eta: 3 days, 5:13:47, time (data): 0.423 (0.070)] l_pix: -1.8063e+01
+2025-03-12 05:23:21,957 INFO: [KUnet..][epoch:432, iter:  31,200, lr:(1.882e-04,1.883e-05,)] [eta: 3 days, 5:22:54, time (data): 5.321 (5.070)] l_pix: -1.7085e+01
+2025-03-12 05:29:35,496 INFO: [KUnet..][epoch:433, iter:  31,400, lr:(1.881e-04,1.881e-05,)] [eta: 3 days, 5:28:07, time (data): 2.793 (0.008)] l_pix: -1.7367e+01
+2025-03-12 05:35:46,741 INFO: [KUnet..][epoch:433, iter:  31,600, lr:(1.879e-04,1.880e-05,)] [eta: 3 days, 5:32:23, time (data): 4.090 (3.857)] l_pix: -1.8648e+01
+2025-03-12 05:42:24,388 INFO: [KUnet..][epoch:434, iter:  31,800, lr:(1.878e-04,1.878e-05,)] [eta: 3 days, 5:42:34, time (data): 0.290 (0.030)] l_pix: -1.7688e+01
+2025-03-12 10:01:01,994 INFO: [KUnet..][epoch:435, iter:  32,000, lr:(1.876e-04,1.877e-05,)] [eta: 5 days, 16:39:51, time (data): 0.271 (0.010)] l_pix: -1.8945e+01
+2025-03-12 10:07:25,033 INFO: [KUnet..][epoch:435, iter:  32,200, lr:(1.875e-04,1.875e-05,)] [eta: 5 days, 15:43:38, time (data): 0.375 (0.006)] l_pix: -1.6846e+01
+2025-03-12 10:14:14,539 INFO: [KUnet..][epoch:436, iter:  32,400, lr:(1.873e-04,1.874e-05,)] [eta: 5 days, 14:55:00, time (data): 3.453 (3.209)] l_pix: -1.7249e+01
+2025-03-12 10:19:54,502 INFO: [KUnet..][epoch:436, iter:  32,600, lr:(1.872e-04,1.872e-05,)] [eta: 5 days, 13:52:17, time (data): 1.790 (1.514)] l_pix: -1.8501e+01
+2025-03-12 10:26:44,191 INFO: [KUnet..][epoch:437, iter:  32,800, lr:(1.870e-04,1.871e-05,)] [eta: 5 days, 13:06:31, time (data): 3.762 (0.008)] l_pix: -1.8291e+01
+2025-03-12 10:33:14,872 INFO: [KUnet..][epoch:438, iter:  33,000, lr:(1.869e-04,1.869e-05,)] [eta: 5 days, 12:17:53, time (data): 3.790 (1.135)] l_pix: -1.7802e+01
+2025-03-12 10:39:46,057 INFO: [KUnet..][epoch:438, iter:  33,200, lr:(1.867e-04,1.868e-05,)] [eta: 5 days, 11:30:39, time (data): 2.507 (0.066)] l_pix: -1.7598e+01
+2025-03-12 10:46:20,852 INFO: [KUnet..][epoch:439, iter:  33,400, lr:(1.866e-04,1.866e-05,)] [eta: 5 days, 10:45:22, time (data): 2.087 (0.111)] l_pix: -1.7912e+01
+2025-03-12 10:52:21,156 INFO: [KUnet..][epoch:439, iter:  33,600, lr:(1.864e-04,1.865e-05,)] [eta: 5 days, 9:54:11, time (data): 0.320 (0.007)] l_pix: -1.8065e+01
+2025-03-12 10:59:24,780 INFO: [KUnet..][epoch:440, iter:  33,800, lr:(1.862e-04,1.863e-05,)] [eta: 5 days, 9:17:02, time (data): 2.275 (0.005)] l_pix: -1.7997e+01
+2025-03-12 11:06:16,143 INFO: [KUnet..][epoch:441, iter:  34,000, lr:(1.861e-04,1.861e-05,)] [eta: 5 days, 8:38:18, time (data): 0.364 (0.007)] l_pix: -1.8902e+01
+2025-03-12 11:12:36,490 INFO: [KUnet..][epoch:441, iter:  34,200, lr:(1.859e-04,1.860e-05,)] [eta: 5 days, 7:54:27, time (data): 3.288 (0.005)] l_pix: -1.7799e+01
+2025-03-12 11:19:22,362 INFO: [KUnet..][epoch:442, iter:  34,400, lr:(1.858e-04,1.858e-05,)] [eta: 5 days, 7:16:31, time (data): 0.238 (0.007)] l_pix: -1.7158e+01
+2025-03-12 11:25:33,842 INFO: [KUnet..][epoch:442, iter:  34,600, lr:(1.856e-04,1.857e-05,)] [eta: 5 days, 6:32:58, time (data): 1.890 (0.055)] l_pix: -1.7514e+01
+2025-03-12 11:32:54,670 INFO: [KUnet..][epoch:443, iter:  34,800, lr:(1.854e-04,1.855e-05,)] [eta: 5 days, 6:03:18, time (data): 0.329 (0.005)] l_pix: -1.7570e+01
+2025-03-12 11:39:05,270 INFO: [KUnet..][epoch:444, iter:  35,000, lr:(1.853e-04,1.853e-05,)] [eta: 5 days, 5:21:22, time (data): 0.371 (0.009)] l_pix: -1.7764e+01
+2025-03-12 11:45:40,466 INFO: [KUnet..][epoch:444, iter:  35,200, lr:(1.851e-04,1.852e-05,)] [eta: 5 days, 4:44:49, time (data): 3.782 (0.007)] l_pix: -1.8408e+01
+2025-03-12 11:52:36,383 INFO: [KUnet..][epoch:445, iter:  35,400, lr:(1.849e-04,1.850e-05,)] [eta: 5 days, 4:12:45, time (data): 0.282 (0.008)] l_pix: -1.8231e+01
+2025-03-12 11:58:43,664 INFO: [KUnet..][epoch:445, iter:  35,600, lr:(1.848e-04,1.848e-05,)] [eta: 5 days, 3:32:46, time (data): 0.259 (0.016)] l_pix: -1.6895e+01
+2025-03-12 12:05:42,168 INFO: [KUnet..][epoch:446, iter:  35,800, lr:(1.846e-04,1.847e-05,)] [eta: 5 days, 3:02:31, time (data): 0.602 (0.016)] l_pix: -1.7494e+01
+2025-03-12 12:12:08,711 INFO: [KUnet..][epoch:447, iter:  36,000, lr:(1.844e-04,1.845e-05,)] [eta: 5 days, 2:27:24, time (data): 4.062 (3.238)] l_pix: -1.7885e+01
+2025-03-12 12:18:07,167 INFO: [KUnet..][epoch:447, iter:  36,200, lr:(1.843e-04,1.843e-05,)] [eta: 5 days, 1:48:15, time (data): 4.036 (0.037)] l_pix: -1.8179e+01
+2025-03-12 12:24:44,258 INFO: [KUnet..][epoch:448, iter:  36,400, lr:(1.841e-04,1.842e-05,)] [eta: 5 days, 1:16:20, time (data): 0.343 (0.006)] l_pix: -1.7687e+01
+2025-03-12 12:30:41,988 INFO: [KUnet..][epoch:448, iter:  36,600, lr:(1.839e-04,1.840e-05,)] [eta: 5 days, 0:38:34, time (data): 3.967 (3.777)] l_pix: -1.8522e+01
+2025-03-12 12:37:32,542 INFO: [KUnet..][epoch:449, iter:  36,800, lr:(1.838e-04,1.838e-05,)] [eta: 5 days, 0:10:06, time (data): 0.281 (0.008)] l_pix: -1.8138e+01
+2025-03-12 12:44:23,005 INFO: [KUnet..][epoch:450, iter:  37,000, lr:(1.836e-04,1.837e-05,)] [eta: 4 days, 23:42:08, time (data): 0.440 (0.012)] l_pix: -1.7992e+01
+2025-03-12 12:50:51,562 INFO: [KUnet..][epoch:450, iter:  37,200, lr:(1.834e-04,1.835e-05,)] [eta: 4 days, 23:11:13, time (data): 0.348 (0.006)] l_pix: -1.7941e+01
+2025-03-12 12:57:33,958 INFO: [KUnet..][epoch:451, iter:  37,400, lr:(1.832e-04,1.833e-05,)] [eta: 4 days, 22:43:00, time (data): 0.336 (0.007)] l_pix: -1.8163e+01
+2025-03-12 13:04:01,516 INFO: [KUnet..][epoch:452, iter:  37,600, lr:(1.831e-04,1.831e-05,)] [eta: 4 days, 22:13:00, time (data): 6.130 (0.523)] l_pix: -1.6915e+01
+2025-03-12 13:11:05,488 INFO: [KUnet..][epoch:452, iter:  37,800, lr:(1.829e-04,1.830e-05,)] [eta: 4 days, 21:49:03, time (data): 5.034 (0.011)] l_pix: -1.7791e+01
+2025-03-12 13:17:39,098 INFO: [KUnet..][epoch:453, iter:  38,000, lr:(1.827e-04,1.828e-05,)] [eta: 4 days, 21:20:56, time (data): 0.380 (0.007)] l_pix: -1.7429e+01
+2025-03-12 13:24:13,628 INFO: [KUnet..][epoch:453, iter:  38,200, lr:(1.825e-04,1.826e-05,)] [eta: 4 days, 20:53:25, time (data): 0.263 (0.005)] l_pix: -1.8102e+01
+2025-03-12 13:31:01,011 INFO: [KUnet..][epoch:454, iter:  38,400, lr:(1.824e-04,1.824e-05,)] [eta: 4 days, 20:28:15, time (data): 4.395 (4.150)] l_pix: -1.7474e+01
+2025-03-12 13:36:52,747 INFO: [KUnet..][epoch:455, iter:  38,600, lr:(1.822e-04,1.823e-05,)] [eta: 4 days, 19:55:25, time (data): 0.326 (0.041)] l_pix: -1.8353e+01
+2025-03-12 13:43:16,433 INFO: [KUnet..][epoch:455, iter:  38,800, lr:(1.820e-04,1.821e-05,)] [eta: 4 days, 19:27:44, time (data): 0.349 (0.007)] l_pix: -1.8203e+01
+2025-03-12 13:49:56,506 INFO: [KUnet..][epoch:456, iter:  39,000, lr:(1.818e-04,1.819e-05,)] [eta: 4 days, 19:02:48, time (data): 5.155 (4.965)] l_pix: -1.7433e+01
+2025-03-12 13:56:07,473 INFO: [KUnet..][epoch:456, iter:  39,200, lr:(1.816e-04,1.817e-05,)] [eta: 4 days, 18:34:12, time (data): 0.297 (0.013)] l_pix: -1.8482e+01
+2025-03-12 14:02:53,302 INFO: [KUnet..][epoch:457, iter:  39,400, lr:(1.815e-04,1.815e-05,)] [eta: 4 days, 18:10:52, time (data): 5.601 (5.376)] l_pix: -1.7160e+01
+2025-03-12 14:09:09,323 INFO: [KUnet..][epoch:458, iter:  39,600, lr:(1.813e-04,1.814e-05,)] [eta: 4 days, 17:43:48, time (data): 0.414 (0.060)] l_pix: -1.8335e+01
+2025-03-12 14:15:12,946 INFO: [KUnet..][epoch:458, iter:  39,800, lr:(1.811e-04,1.812e-05,)] [eta: 4 days, 17:15:29, time (data): 0.241 (0.007)] l_pix: -1.8741e+01
+2025-03-12 14:22:13,094 INFO: [KUnet..][epoch:459, iter:  40,000, lr:(1.809e-04,1.810e-05,)] [eta: 4 days, 16:55:09, time (data): 7.296 (0.079)] l_pix: -1.7624e+01
+2025-03-12 14:22:13,094 INFO: Saving models and training states.
+2025-03-12 14:28:32,184 INFO: [KUnet..][epoch:459, iter:  40,200, lr:(1.807e-04,1.808e-05,)] [eta: 4 days, 16:29:40, time (data): 5.833 (0.005)] l_pix: -1.7868e+01
+Exception in thread Thread-66:
+Traceback (most recent call last):
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1132, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/multiprocessing/queues.py", line 114, in get
+    raise Empty
+_queue.Empty
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/data/prefetch_dataloader.py", line 26, in run
+    for item in self.generator:
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1328, in _next_data
+    idx, data = self._get_data()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1294, in _get_data
+    success, data = self._try_get_data()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1145, in _try_get_data
+    raise RuntimeError(f'DataLoader worker (pid(s) {pids_str}) exited unexpectedly') from e
+RuntimeError: DataLoader worker (pid(s) 2284541) exited unexpectedly

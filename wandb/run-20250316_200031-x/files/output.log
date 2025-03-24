@@ -1,0 +1,388 @@
+2025-03-16 20:00:32,836 INFO: Use wandb logger with id=x; project=your_project_name.
+2025-03-16 20:00:32,906 INFO: Dataset initialized with 1771 samples.
+2025-03-16 20:00:32,906 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-train is created.
+2025-03-16 20:00:32,907 INFO: Use cpu prefetch dataloader: num_prefetch_queue = 2
+2025-03-16 20:00:32,907 INFO: Training statistics:
+	Number of train images: 1771
+	Dataset enlarge ratio: 6
+	Batch size per gpu: 8
+	World size (gpu number): 4
+	Require iter number per epoch: 333
+	Total epochs: 601; iters: 200000.
+2025-03-16 20:00:32,920 INFO: Dataset initialized with 421 samples.
+2025-03-16 20:00:32,920 INFO: Dataset VoxelnpzPngSingleDeblurDataset - highrev-val is created.
+2025-03-16 20:00:32,920 INFO: Number of val images/folders in highrev-val: 421
+2025-03-16 20:00:32,920 WARNING: pretrain_network path will be ignored during resuming.
+2025-03-16 20:00:32,921 INFO: Set pretrain_network_g to /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_150000.pth
+2025-03-16 20:00:40,590 INFO: Network: DistributedDataParallel - KUnet, with parameters: 140,943,581
+2025-03-16 20:00:40,592 INFO: KUnet(
+  (down1): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(3, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=3)
+          (pointwise): Conv2d(3, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          (pointwise): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (down2): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          (pointwise): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (down3): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (down4): DownLayer(
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          (pointwise): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (bottleneck): DoubleConv(
+    (conv): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+        (pointwise): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ConvLayerNorm(
+        (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): ReLU(inplace=True)
+      (3): DepthwiseSeparableConv(
+        (depthwise): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024)
+        (pointwise): Conv2d(1024, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (4): ConvLayerNorm(
+        (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): ReLU(inplace=True)
+    )
+  )
+  (event_encoder): EventEncoder(
+    (conv1): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(6, 6, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=6)
+        (pointwise): Conv2d(6, 64, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv2): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64)
+        (pointwise): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv3): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=128)
+        (pointwise): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv4): Sequential(
+      (0): DepthwiseSeparableConv(
+        (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=256)
+        (pointwise): Conv2d(256, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (1): ReLU(inplace=True)
+    )
+    (conv5): DepthwiseSeparableConv(
+      (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+      (pointwise): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+  (fusion_layer): Conv2d(2048, 1024, kernel_size=(1, 1), stride=(1, 1))
+  (tokenizer): PatchTokenizer(
+    (proj): Conv2d(1024, 1024, kernel_size=(2, 2), stride=(2, 2))
+    (norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+  )
+  (self_attention): TokenSelfAttention(
+    (attention): MultiheadAttention(
+      (out_proj): NonDynamicallyQuantizableLinear(in_features=1024, out_features=1024, bias=True)
+    )
+    (norm1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (norm2): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (ff): Sequential(
+      (0): Linear(in_features=1024, out_features=4096, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=4096, out_features=1024, bias=True)
+    )
+    (dropout): Dropout(p=0.1, inplace=False)
+  )
+  (token_projection1): KANLinear(
+    (base_activation): SiLU()
+  )
+  (token_projection2): KANLinear(
+    (base_activation): SiLU()
+  )
+  (token_projection3): KANLinear(
+    (base_activation): SiLU()
+  )
+  (up1): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(1024, 512, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(1024, 1024, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=1024)
+          (pointwise): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          (pointwise): Conv2d(512, 512, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (up2): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(512, 256, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=512)
+          (pointwise): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (up3): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(256, 128, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=256)
+          (pointwise): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (up4): UpLayer(
+    (up): Up(
+      (up_scale): ConvTranspose2d(128, 64, kernel_size=(2, 2), stride=(2, 2))
+    )
+    (conv): DoubleConv(
+      (conv): Sequential(
+        (0): DepthwiseSeparableConv(
+          (depthwise): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=128)
+          (pointwise): Conv2d(128, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (1): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): ReLU(inplace=True)
+        (3): DepthwiseSeparableConv(
+          (depthwise): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64)
+          (pointwise): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (4): ConvLayerNorm(
+          (layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): ReLU(inplace=True)
+      )
+    )
+  )
+  (last_conv): Conv2d(64, 3, kernel_size=(1, 1), stride=(1, 1))
+)
+2025-03-16 20:00:40,593 INFO: Loading KUnet model from /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_150000.pth.
+ load net keys <built-in method keys of collections.OrderedDict object at 0x155488242540>
+.. cosineannealingLR
+2025-03-16 20:00:41,278 INFO: Model [ImageEventRestorationModel] is created.
+2025-03-16 20:00:41,279 INFO: Resuming training from epoch: 774, iter: 150000.
+2025-03-16 20:00:54,882 INFO: Start training from epoch: 774, iter: 150000
+/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/nn/modules/conv.py:456: UserWarning: Applied workaround for CuDNN issue, install nvrtc.so (Triggered internally at ../aten/src/ATen/native/cudnn/Conv_v8.cpp:80.)
+  return F.conv2d(input, weight, bias, self.stride,
+/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/autograd/__init__.py:251: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [3, 64, 1, 1], strides() = [64, 1, 64, 64]
+bucket_view.sizes() = [3, 64, 1, 1], strides() = [64, 1, 1, 1] (Triggered internally at ../torch/csrc/distributed/c10d/reducer.cpp:320.)
+  Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+2025-03-16 20:08:08,532 INFO: [KUnet..][epoch:774, iter: 150,200, lr:(2.915e-05,2.992e-06,)] [eta: 1 day, 6:46:49, time (data): 3.921 (0.007)] l_pix: -1.8273e+01
+2025-03-16 20:14:27,300 INFO: [KUnet..][epoch:775, iter: 150,400, lr:(2.893e-05,2.970e-06,)] [eta: 1 day, 4:22:49, time (data): 3.912 (0.208)] l_pix: -1.8454e+01
+2025-03-16 20:21:02,469 INFO: [KUnet..][epoch:775, iter: 150,600, lr:(2.871e-05,2.948e-06,)] [eta: 1 day, 3:52:55, time (data): 3.247 (0.006)] l_pix: -1.8497e+01
+2025-03-16 20:28:10,512 INFO: [KUnet..][epoch:776, iter: 150,800, lr:(2.849e-05,2.927e-06,)] [eta: 1 day, 4:08:19, time (data): 0.413 (0.074)] l_pix: -1.9056e+01
+2025-03-16 20:34:23,164 INFO: [KUnet..][epoch:777, iter: 151,000, lr:(2.827e-05,2.905e-06,)] [eta: 1 day, 3:29:31, time (data): 4.231 (4.004)] l_pix: -1.8414e+01
+2025-03-16 20:40:02,048 INFO: [KUnet..][epoch:777, iter: 151,200, lr:(2.806e-05,2.883e-06,)] [eta: 1 day, 2:38:41, time (data): 0.320 (0.005)] l_pix: -1.9551e+01
+2025-03-16 20:46:10,404 INFO: [KUnet..][epoch:778, iter: 151,400, lr:(2.784e-05,2.861e-06,)] [eta: 1 day, 2:17:50, time (data): 6.352 (0.095)] l_pix: -1.8158e+01
+2025-03-16 20:52:12,500 INFO: [KUnet..][epoch:778, iter: 151,600, lr:(2.762e-05,2.840e-06,)] [eta: 1 day, 1:57:29, time (data): 0.424 (0.009)] l_pix: -1.8757e+01
+2025-03-16 20:59:05,175 INFO: [KUnet..][epoch:779, iter: 151,800, lr:(2.741e-05,2.818e-06,)] [eta: 1 day, 2:02:52, time (data): 0.343 (0.009)] l_pix: -1.9162e+01
+2025-03-16 21:05:50,510 INFO: [KUnet..][epoch:780, iter: 152,000, lr:(2.719e-05,2.797e-06,)] [eta: 1 day, 2:02:52, time (data): 0.313 (0.005)] l_pix: -1.8798e+01
+2025-03-16 21:12:28,526 INFO: [KUnet..][epoch:780, iter: 152,200, lr:(2.698e-05,2.776e-06,)] [eta: 1 day, 1:59:00, time (data): 0.888 (0.008)] l_pix: -1.8280e+01
+2025-03-16 21:19:06,497 INFO: [KUnet..][epoch:781, iter: 152,400, lr:(2.676e-05,2.754e-06,)] [eta: 1 day, 1:54:39, time (data): 0.615 (0.030)] l_pix: -1.8349e+01
+2025-03-16 21:25:23,428 INFO: [KUnet..][epoch:781, iter: 152,600, lr:(2.655e-05,2.733e-06,)] [eta: 1 day, 1:43:33, time (data): 5.345 (5.139)] l_pix: -1.9295e+01
+2025-03-16 21:31:56,702 INFO: [KUnet..][epoch:782, iter: 152,800, lr:(2.634e-05,2.712e-06,)] [eta: 1 day, 1:37:45, time (data): 0.363 (0.005)] l_pix: -1.9164e+01
+2025-03-16 21:37:55,000 INFO: [KUnet..][epoch:783, iter: 153,000, lr:(2.612e-05,2.691e-06,)] [eta: 1 day, 1:22:42, time (data): 1.577 (0.011)] l_pix: -1.9176e+01
+2025-03-16 21:44:23,087 INFO: [KUnet..][epoch:783, iter: 153,200, lr:(2.591e-05,2.670e-06,)] [eta: 1 day, 1:16:03, time (data): 0.463 (0.010)] l_pix: -1.7953e+01
+2025-03-16 21:50:51,448 INFO: [KUnet..][epoch:784, iter: 153,400, lr:(2.570e-05,2.649e-06,)] [eta: 1 day, 1:09:29, time (data): 5.350 (0.774)] l_pix: -1.9124e+01
+2025-03-16 21:57:09,058 INFO: [KUnet..][epoch:784, iter: 153,600, lr:(2.549e-05,2.628e-06,)] [eta: 1 day, 1:00:37, time (data): 0.275 (0.008)] l_pix: -1.8697e+01
+2025-03-16 22:03:55,035 INFO: [KUnet..][epoch:785, iter: 153,800, lr:(2.529e-05,2.607e-06,)] [eta: 1 day, 0:57:46, time (data): 4.222 (0.027)] l_pix: -1.7892e+01
+2025-03-16 22:10:17,047 INFO: [KUnet..][epoch:786, iter: 154,000, lr:(2.508e-05,2.586e-06,)] [eta: 1 day, 0:49:57, time (data): 3.734 (1.462)] l_pix: -1.8203e+01
+2025-03-16 22:16:37,896 INFO: [KUnet..][epoch:786, iter: 154,200, lr:(2.487e-05,2.566e-06,)] [eta: 1 day, 0:42:02, time (data): 0.385 (0.005)] l_pix: -1.8703e+01
+2025-03-16 22:22:58,321 INFO: [KUnet..][epoch:787, iter: 154,400, lr:(2.466e-05,2.545e-06,)] [eta: 1 day, 0:34:12, time (data): 0.338 (0.019)] l_pix: -1.8449e+01
+2025-03-16 22:29:12,590 INFO: [KUnet..][epoch:787, iter: 154,600, lr:(2.446e-05,2.525e-06,)] [eta: 1 day, 0:25:29, time (data): 4.004 (0.008)] l_pix: -1.8660e+01
+2025-03-16 22:35:51,269 INFO: [KUnet..][epoch:788, iter: 154,800, lr:(2.425e-05,2.504e-06,)] [eta: 1 day, 0:20:48, time (data): 0.317 (0.006)] l_pix: -1.8611e+01
+2025-03-16 22:41:47,598 INFO: [KUnet..][epoch:789, iter: 155,000, lr:(2.405e-05,2.484e-06,)] [eta: 1 day, 0:09:37, time (data): 0.279 (0.005)] l_pix: -1.8776e+01
+2025-03-16 22:48:12,749 INFO: [KUnet..][epoch:789, iter: 155,200, lr:(2.384e-05,2.464e-06,)] [eta: 1 day, 0:02:58, time (data): 0.238 (0.010)] l_pix: -1.8568e+01
+2025-03-16 22:55:05,282 INFO: [KUnet..][epoch:790, iter: 155,400, lr:(2.364e-05,2.444e-06,)] [eta: 1 day, 0:00:06, time (data): 1.476 (1.274)] l_pix: -1.7999e+01
+2025-03-16 23:01:05,485 INFO: [KUnet..][epoch:790, iter: 155,600, lr:(2.344e-05,2.423e-06,)] [eta: 23:50:03, time (data): 4.053 (3.854)] l_pix: -1.8792e+01
+2025-03-16 23:07:39,032 INFO: [KUnet..][epoch:791, iter: 155,800, lr:(2.324e-05,2.403e-06,)] [eta: 23:44:30, time (data): 0.303 (0.005)] l_pix: -1.8768e+01
+2025-03-16 23:13:31,655 INFO: [KUnet..][epoch:792, iter: 156,000, lr:(2.304e-05,2.383e-06,)] [eta: 23:33:53, time (data): 0.590 (0.008)] l_pix: -1.8348e+01
+2025-03-16 23:20:11,299 INFO: [KUnet..][epoch:792, iter: 156,200, lr:(2.284e-05,2.364e-06,)] [eta: 23:29:06, time (data): 4.431 (0.006)] l_pix: -1.9153e+01
+2025-03-16 23:26:49,848 INFO: [KUnet..][epoch:793, iter: 156,400, lr:(2.264e-05,2.344e-06,)] [eta: 23:24:05, time (data): 0.214 (0.007)] l_pix: -1.8298e+01
+2025-03-16 23:32:46,085 INFO: [KUnet..][epoch:793, iter: 156,600, lr:(2.244e-05,2.324e-06,)] [eta: 23:14:20, time (data): 0.300 (0.005)] l_pix: -1.9420e+01
+2025-03-16 23:39:32,566 INFO: [KUnet..][epoch:794, iter: 156,800, lr:(2.224e-05,2.304e-06,)] [eta: 23:10:08, time (data): 0.255 (0.009)] l_pix: -1.8298e+01
+2025-03-16 23:45:55,486 INFO: [KUnet..][epoch:795, iter: 157,000, lr:(2.205e-05,2.285e-06,)] [eta: 23:03:22, time (data): 6.135 (0.006)] l_pix: -1.9351e+01
+2025-03-16 23:52:31,575 INFO: [KUnet..][epoch:795, iter: 157,200, lr:(2.185e-05,2.265e-06,)] [eta: 22:57:55, time (data): 4.670 (0.012)] l_pix: -1.9698e+01
+2025-03-16 23:59:12,619 INFO: [KUnet..][epoch:796, iter: 157,400, lr:(2.166e-05,2.246e-06,)] [eta: 22:52:53, time (data): 0.505 (0.008)] l_pix: -1.8537e+01
+2025-03-17 00:05:29,834 INFO: [KUnet..][epoch:796, iter: 157,600, lr:(2.146e-05,2.227e-06,)] [eta: 22:45:33, time (data): 7.106 (0.006)] l_pix: -1.7962e+01
+2025-03-17 00:12:16,917 INFO: [KUnet..][epoch:797, iter: 157,800, lr:(2.127e-05,2.207e-06,)] [eta: 22:40:58, time (data): 1.046 (0.007)] l_pix: -1.8660e+01
+2025-03-17 00:18:47,947 INFO: [KUnet..][epoch:798, iter: 158,000, lr:(2.107e-05,2.188e-06,)] [eta: 22:34:52, time (data): 5.848 (0.006)] l_pix: -1.8729e+01
+2025-03-17 00:25:21,732 INFO: [KUnet..][epoch:798, iter: 158,200, lr:(2.088e-05,2.169e-06,)] [eta: 22:28:59, time (data): 0.516 (0.007)] l_pix: -1.8989e+01
+2025-03-17 00:31:49,055 INFO: [KUnet..][epoch:799, iter: 158,400, lr:(2.069e-05,2.150e-06,)] [eta: 22:22:32, time (data): 0.386 (0.008)] l_pix: -1.7523e+01
+2025-03-17 00:38:04,939 INFO: [KUnet..][epoch:799, iter: 158,600, lr:(2.050e-05,2.131e-06,)] [eta: 22:15:10, time (data): 0.264 (0.019)] l_pix: -1.9101e+01
+2025-03-17 00:45:06,538 INFO: [KUnet..][epoch:800, iter: 158,800, lr:(2.031e-05,2.112e-06,)] [eta: 22:11:25, time (data): 0.237 (0.007)] l_pix: -1.9573e+01
+2025-03-17 00:51:37,411 INFO: [KUnet..][epoch:801, iter: 159,000, lr:(2.012e-05,2.093e-06,)] [eta: 22:05:11, time (data): 0.368 (0.006)] l_pix: -1.8803e+01
+2025-03-17 00:58:13,135 INFO: [KUnet..][epoch:801, iter: 159,200, lr:(1.993e-05,2.075e-06,)] [eta: 21:59:18, time (data): 7.098 (0.087)] l_pix: -1.8994e+01
+2025-03-17 01:04:57,431 INFO: [KUnet..][epoch:802, iter: 159,400, lr:(1.975e-05,2.056e-06,)] [eta: 21:54:00, time (data): 0.924 (0.007)] l_pix: -1.8245e+01
+2025-03-17 01:10:47,828 INFO: [KUnet..][epoch:802, iter: 159,600, lr:(1.956e-05,2.037e-06,)] [eta: 21:44:52, time (data): 0.244 (0.005)] l_pix: -1.8661e+01
+2025-03-17 01:17:36,936 INFO: [KUnet..][epoch:803, iter: 159,800, lr:(1.937e-05,2.019e-06,)] [eta: 21:39:53, time (data): 0.380 (0.016)] l_pix: -1.8952e+01
+2025-03-17 01:24:16,016 INFO: [KUnet..][epoch:804, iter: 160,000, lr:(1.919e-05,2.000e-06,)] [eta: 21:34:09, time (data): 2.233 (0.913)] l_pix: -1.8884e+01
+2025-03-17 01:24:16,018 INFO: Saving models and training states.
+2025-03-17 01:30:59,148 INFO: [KUnet..][epoch:804, iter: 160,200, lr:(1.901e-05,1.982e-06,)] [eta: 21:28:39, time (data): 6.595 (0.006)] l_pix: -1.8599e+01
+2025-03-17 01:37:57,670 INFO: [KUnet..][epoch:805, iter: 160,400, lr:(1.882e-05,1.964e-06,)] [eta: 21:24:04, time (data): 6.744 (0.006)] l_pix: -1.9076e+01
+2025-03-17 01:44:13,628 INFO: [KUnet..][epoch:805, iter: 160,600, lr:(1.864e-05,1.946e-06,)] [eta: 21:16:46, time (data): 4.496 (0.007)] l_pix: -1.9635e+01
+2025-03-17 01:50:34,162 INFO: [KUnet..][epoch:806, iter: 160,800, lr:(1.846e-05,1.928e-06,)] [eta: 21:09:47, time (data): 3.421 (0.005)] l_pix: -1.8914e+01
+2025-03-17 01:57:08,517 INFO: [KUnet..][epoch:807, iter: 161,000, lr:(1.828e-05,1.910e-06,)] [eta: 21:03:38, time (data): 0.413 (0.106)] l_pix: -1.8963e+01
+2025-03-17 02:03:27,277 INFO: [KUnet..][epoch:807, iter: 161,200, lr:(1.810e-05,1.892e-06,)] [eta: 20:56:34, time (data): 0.310 (0.048)] l_pix: -1.8618e+01
+2025-03-17 02:10:01,201 INFO: [KUnet..][epoch:808, iter: 161,400, lr:(1.792e-05,1.874e-06,)] [eta: 20:50:24, time (data): 0.408 (0.005)] l_pix: -1.9383e+01
+2025-03-17 02:15:55,371 INFO: [KUnet..][epoch:808, iter: 161,600, lr:(1.774e-05,1.856e-06,)] [eta: 20:42:01, time (data): 0.394 (0.029)] l_pix: -1.9032e+01
+Exception in thread Thread-40:
+Traceback (most recent call last):
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1132, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/multiprocessing/queues.py", line 114, in get
+    raise Empty
+_queue.Empty
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/threading.py", line 980, in _bootstrap_inner
+    self.run()
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/data/prefetch_dataloader.py", line 26, in run
+    for item in self.generator:
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1328, in _next_data
+    idx, data = self._get_data()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1294, in _get_data
+    success, data = self._try_get_data()
+  File "/home/ypatel37/.local/share/mamba/envs/ntire_env/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1145, in _try_get_data
+    raise RuntimeError(f'DataLoader worker (pid(s) {pids_str}) exited unexpectedly') from e
+RuntimeError: DataLoader worker (pid(s) 3980087, 3980170, 3981740) exited unexpectedly

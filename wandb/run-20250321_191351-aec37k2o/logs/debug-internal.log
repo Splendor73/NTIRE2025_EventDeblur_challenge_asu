@@ -1,0 +1,7 @@
+{"time":"2025-03-21T19:13:51.694158088-07:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/wandb/run-20250321_191351-aec37k2o/logs/debug-core.log"}
+{"time":"2025-03-21T19:13:51.912447763-07:00","level":"INFO","msg":"created new stream","id":"aec37k2o"}
+{"time":"2025-03-21T19:13:51.912475104-07:00","level":"INFO","msg":"stream: started","id":"aec37k2o"}
+{"time":"2025-03-21T19:13:51.912693775-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"aec37k2o"}
+{"time":"2025-03-21T19:13:51.912757174-07:00","level":"INFO","msg":"sender: started","stream_id":"aec37k2o"}
+{"time":"2025-03-21T19:13:51.91279744-07:00","level":"INFO","msg":"handler: started","stream_id":"aec37k2o"}
+{"time":"2025-03-21T19:13:52.04931878-07:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"An internal error occurred. Please contact support.\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}

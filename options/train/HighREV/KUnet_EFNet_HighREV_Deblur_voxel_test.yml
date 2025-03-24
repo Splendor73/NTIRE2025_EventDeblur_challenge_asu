@@ -29,8 +29,8 @@ datasets:
     # data loader settings
     use_shuffle: true
     num_worker_per_gpu: 3
-    batch_size_per_gpu: 4 # 4 for 2080, 8 for titan
-    dataset_enlarge_ratio: 4  # accelarate, equals to the num_gpu
+    batch_size_per_gpu: 8 # 4 for 2080, 8 for titan
+    dataset_enlarge_ratio: 6  # accelarate, equals to the num_gpu
     prefetch_mode: cpu
     num_prefetch_queue: 2
 
@@ -52,7 +52,7 @@ datasets:
   test:
     name: highrev-test
     type: VoxelnpzPngSingleDeblurDataset
-    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val/
     dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
 
     gt_size: ~
@@ -82,7 +82,7 @@ path:
   results_root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
   log: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
   visualization: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results/visualization
-  pretrain_network_g: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth  # Point to your checkpoint
+  pretrain_network_g: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_140000.pth  # Point to your checkpoint
   strict_load_g: true
   resume_state: ~
   training_states: ~ # Save training model states for resume

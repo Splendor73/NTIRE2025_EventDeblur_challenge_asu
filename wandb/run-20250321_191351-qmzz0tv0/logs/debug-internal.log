@@ -1,0 +1,7 @@
+{"time":"2025-03-21T19:13:51.691921578-07:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/wandb/run-20250321_191351-qmzz0tv0/logs/debug-core.log"}
+{"time":"2025-03-21T19:13:51.900232191-07:00","level":"INFO","msg":"created new stream","id":"qmzz0tv0"}
+{"time":"2025-03-21T19:13:51.900260094-07:00","level":"INFO","msg":"stream: started","id":"qmzz0tv0"}
+{"time":"2025-03-21T19:13:51.90320293-07:00","level":"INFO","msg":"handler: started","stream_id":"qmzz0tv0"}
+{"time":"2025-03-21T19:13:51.903239519-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"qmzz0tv0"}
+{"time":"2025-03-21T19:13:51.904584555-07:00","level":"INFO","msg":"sender: started","stream_id":"qmzz0tv0"}
+{"time":"2025-03-21T19:13:52.160311879-07:00","level":"INFO","msg":"Starting system monitor"}

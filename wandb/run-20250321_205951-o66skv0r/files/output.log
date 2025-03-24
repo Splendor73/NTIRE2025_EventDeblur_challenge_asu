@@ -1,0 +1,13 @@
+2025-03-21 20:59:52,571 INFO: Use wandb logger with id=o66skv0r; project=KUnet_12bin_training.
+Traceback (most recent call last):
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 276, in <module>
+    main()
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 172, in main
+    result = create_train_val_dataloader(opt, logger)
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 88, in create_train_val_dataloader
+    train_set = create_dataset(dataset_opt)
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/data/__init__.py", line 52, in create_dataset
+    dataset = dataset_cls(dataset_opt)
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/data/voxelnpz_image_dataset.py", line 72, in __init__
+    assert len(blur_frames) == len(sharp_frames) == len(event_frames), f"Mismatch in blur ({len(blur_frames)}), sharp ({len(sharp_frames)}), and event ({len(event_frames)}) frame counts."
+AssertionError: Mismatch in blur (1771), sharp (1771), and event (2192) frame counts.

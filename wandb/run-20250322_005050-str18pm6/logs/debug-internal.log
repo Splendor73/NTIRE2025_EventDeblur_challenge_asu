@@ -1,0 +1,16 @@
+{"time":"2025-03-22T00:50:50.742345235-07:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/wandb/run-20250322_005050-str18pm6/logs/debug-core.log"}
+{"time":"2025-03-22T00:50:50.851118775-07:00","level":"INFO","msg":"created new stream","id":"str18pm6"}
+{"time":"2025-03-22T00:50:50.851144533-07:00","level":"INFO","msg":"stream: started","id":"str18pm6"}
+{"time":"2025-03-22T00:50:50.85115332-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"str18pm6"}
+{"time":"2025-03-22T00:50:50.851219995-07:00","level":"INFO","msg":"sender: started","stream_id":"str18pm6"}
+{"time":"2025-03-22T00:50:50.851241626-07:00","level":"INFO","msg":"handler: started","stream_id":"str18pm6"}
+{"time":"2025-03-22T00:50:51.128739494-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-22T00:50:51.404710766-07:00","level":"INFO","msg":"stream: closing","id":"str18pm6"}
+{"time":"2025-03-22T00:50:51.404735292-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-22T00:50:51.404986394-07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-22T00:51:01.275416812-07:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-03-22T00:51:01.671170929-07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-22T00:51:01.770633142-07:00","level":"INFO","msg":"handler: closed","stream_id":"str18pm6"}
+{"time":"2025-03-22T00:51:01.770655323-07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"str18pm6"}
+{"time":"2025-03-22T00:51:01.770698364-07:00","level":"INFO","msg":"sender: closed","stream_id":"str18pm6"}
+{"time":"2025-03-22T00:51:01.772289993-07:00","level":"INFO","msg":"stream: closed","id":"str18pm6"}

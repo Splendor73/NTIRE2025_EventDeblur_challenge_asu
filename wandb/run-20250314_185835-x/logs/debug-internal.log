@@ -1,0 +1,9 @@
+{"time":"2025-03-14T18:58:36.399684049-07:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/wandb/run-20250314_185835-x/logs/debug-core.log"}
+{"time":"2025-03-14T18:58:36.54190852-07:00","level":"INFO","msg":"created new stream","id":"x"}
+{"time":"2025-03-14T18:58:36.541965827-07:00","level":"INFO","msg":"stream: started","id":"x"}
+{"time":"2025-03-14T18:58:36.547861769-07:00","level":"INFO","msg":"handler: started","stream_id":"x"}
+{"time":"2025-03-14T18:58:36.547902746-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"x"}
+{"time":"2025-03-14T18:58:36.548567444-07:00","level":"INFO","msg":"sender: started","stream_id":"x"}
+{"time":"2025-03-14T18:58:37.11141162-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-14T18:58:47.304998535-07:00","level":"INFO","msg":"tensorboard: no root directory after 10 seconds, using working directory"}
+{"time":"2025-03-14T20:05:42.165434736-07:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/splendor7ed-arizona-state-university/your_project_name/x/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}

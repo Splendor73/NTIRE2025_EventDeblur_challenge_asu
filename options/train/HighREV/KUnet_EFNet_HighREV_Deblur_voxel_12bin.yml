@@ -1,0 +1,128 @@
+# general settings
+name: KUnet_highrev_single_deblur_voxel_12bin
+model_type: ImageEventRestorationModel
+scale: 1
+num_gpu:  4  # Adjust based on your available GPUs
+manual_seed: 10
+
+datasets:
+  train:
+    name: highrev-train-12bin
+    type: VoxelnpzPngSingleDeblurDataset
+
+    # Update to your 12-bin voxel path
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/train
+    dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/train/voxel_12bins
+
+    gt_size: 256
+    # keep true if use events
+    norm_voxel: true
+    use_hflip: true
+    use_rot: true
+
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+      
+    # data loader settings
+    use_shuffle: true
+    num_worker_per_gpu: 3
+    batch_size_per_gpu: 4  # Adjust based on your GPU memory
+    dataset_enlarge_ratio: 4  # accelarate, equals to the num_gpu
+    prefetch_mode: cpu
+    num_prefetch_queue: 2
+
+  val:
+    name: highrev-val-12bin
+    type: VoxelnpzPngSingleDeblurDataset
+
+    # Update to your 12-bin voxel path
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val/voxel_12bins
+
+    gt_size: ~
+    norm_voxel: true  
+
+    io_backend:
+      type: disk
+    
+    use_hflip: false
+    use_rot: false
+
+dataset_name: HighREV
+
+# network structures
+network_g:
+  type: KUnet
+  dimensions: 3
+  patch_size: 2
+  token_dim: 1024
+  tokenization: true
+  num_heads: 8
+  event_input_channels: 12  # Changed from 6 to 12 for 12-bin voxel input
+
+# path
+path:
+  root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu
+  results_root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results_12bin
+  log: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results_12bin/log
+  visualization: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results_12bin/visualization
+  pretrain_network_g: ~  # Leave empty for training from scratch
+  strict_load_g: true
+  resume_state: ~
+  training_states: ~  # save current trainig model states, for resume
+
+# training settings
+train:
+  optim_g:
+    type: AdamW
+    lr: !!float 2e-4
+    weight_decay: !!float 1e-4
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: TrueCosineAnnealingLR
+    T_max: 200000 
+    eta_min: !!float 1e-7
+
+  total_iter: 200000
+  warmup_iter: -1 # no warm up
+
+  # losses
+  pixel_opt:
+    type: PSNRLoss
+    loss_weight: 0.5
+    reduction: mean
+
+# validation settings
+val:
+  val_freq: !!float 5e4 # 2e4
+  save_img: true  
+  grids: ~  
+  crop_size: ~ # use it of the gpu memory is not enough for whole image inference
+  max_minibatch: 8  
+
+  metrics:
+    psnr:
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false   
+
+# logging settings
+logger:
+  print_freq: 200
+  save_checkpoint_freq: !!float 2e4
+  use_tb_logger: true
+  wandb:
+    project: KUnet_12bin_training
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500 

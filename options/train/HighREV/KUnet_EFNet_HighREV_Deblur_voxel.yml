@@ -14,7 +14,7 @@ datasets:
 
     # dataroot: /work/lei_sun/HighREV/train
     # dataroot_voxel: /work/lei_sun/HighREV_voxel/train/voxel
-    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/train
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/train/
     dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/train/voxel
     gt_size: 256
     # keep true if use events
@@ -37,7 +37,7 @@ datasets:
   val:
     name: highrev-val
     type: VoxelnpzPngSingleDeblurDataset
-    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
+    dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val/
     dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
 
     gt_size: ~
@@ -79,10 +79,10 @@ network_g:
 # path
 path:
   root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu
-  results_root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
-  log: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
-  visualization: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results/visualization
-  pretrain_network_g: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_20000.pth  # Point to your checkpoint
+  results_root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results_new
+  log: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results_new
+  visualization: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results_new/visualization
+  pretrain_network_g: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/experiments/KUnet_highrev_single_deblur_voxel/models/net_g_160000.pt
   strict_load_g: true
   resume_state: ~
   training_states: ~ # Save training model states for resume
@@ -108,10 +108,11 @@ train:
     type: PSNRLoss
     loss_weight: 0.5
     reduction: mean
+    
 
 # validation settings
 val:
-  val_freq: !!float 5e4  # Adjusted to validate every 50k iterations
+  val_freq: !!float 5e5  # Adjusted to validate every 50k iterations
   save_img: true
   grids: ~
   crop_size: ~  # Use it if GPU memory is not enough for full image inference
@@ -131,7 +132,7 @@ val:
 # logging settings
 logger:
   print_freq: 200
-  save_checkpoint_freq: !!float 2e4
+  save_checkpoint_freq: !!float 1e4  
   use_tb_logger: true
   wandb:
     project: your_project_name
