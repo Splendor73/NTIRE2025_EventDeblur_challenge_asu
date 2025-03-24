@@ -1,0 +1,12 @@
+2025-03-23 23:54:34,838 INFO: Use wandb logger with id=x; project=your_project_name.
+2025-03-23 23:54:34,843 INFO: Dataset initialized with 0 samples.
+2025-03-23 23:54:34,843 INFO: Dataset NpzPngSingleDeblurDataset - highrev-train is created.
+2025-03-23 23:54:34,844 INFO: Use cpu prefetch dataloader: num_prefetch_queue = 2
+Traceback (most recent call last):
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 276, in <module>
+    main()
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 172, in main
+    result = create_train_val_dataloader(opt, logger)
+  File "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py", line 103, in create_train_val_dataloader
+    total_epochs = math.ceil(total_iters / (num_iter_per_epoch))
+ZeroDivisionError: division by zero

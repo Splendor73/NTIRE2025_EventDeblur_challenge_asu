@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from basicsr.models.archs.KUnet import KUnet as OriginalKUnet
+
 
 # Re-export the KUnet class to make it available through the architecture dynamic import system
 # This allows the training pipeline to find and use the KUnet model import torch
@@ -16,6 +16,11 @@ from torchvision import transforms
 import torch
 import torch.nn.functional as F
 import math
+import importlib
+
+# Import the KUnet class using importlib to avoid issues with numeric module names
+KUnetModule = importlib.import_module('basicsr.models.archs.17_KUnet')
+OriginalKUnet = KUnetModule.KUnet
 
 
 class KANLinear(torch.nn.Module):

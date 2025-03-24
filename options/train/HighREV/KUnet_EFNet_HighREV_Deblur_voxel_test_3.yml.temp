@@ -1,42 +1,36 @@
-# general settings
-name: KUnet_EFNet_HighREV_Deblur_voxel_demo
-model_type: TestImageEventRestorationModel
-scale: 1
-num_gpu: 4  # Use 1 for testing
-manual_seed: 10
-is_train: false
-
+dataset_name: HighREV
 datasets:
   test:
-    name: highrev-test
-    type: VoxelnpzPngSingleDeblurDataset
     dataroot: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV/val
     dataroot_voxel: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/datasets/HighREV_voxel/val/voxel
-    norm_voxel: true
+    gt_size: null
     io_backend:
       type: disk
+    name: highrev-test
+    norm_voxel: true
+    type: VoxelnpzPngSingleDeblurDataset
     use_hflip: false
     use_rot: false
-
-# network structures
+is_train: false
+manual_seed: 10
+model_type: TestImageEventRestorationModel
+name: KUnet_EFNet_HighREV_Deblur_voxel_demo
 network_g:
-  type: KUnet
   dimensions: 3
+  event_input_channels: 6
+  num_heads: 8
   patch_size: 2
   token_dim: 1024
   tokenization: true
-  num_heads: 8
-  event_input_channels: 6  # Matches voxel dimensions from dataset
-
-# path
+  type: KUnet
+num_gpu: 4
 path:
-  root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu
-  results_root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
   log: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results/log
   pretrain_network_g: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/model_zoo/17_KUnet.pth
+  results_root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results
+  root: /home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu
   strict_load_g: true
-
-# validation settings
+scale: 1
 val:
   save_img: true
-  suffix: ~
+  suffix: null

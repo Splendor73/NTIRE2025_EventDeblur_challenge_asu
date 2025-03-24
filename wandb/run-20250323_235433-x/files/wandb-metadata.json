@@ -1,0 +1,88 @@
+{
+  "os": "Linux-4.18.0-553.22.1.el8_10.x86_64-x86_64-with-glibc2.28",
+  "python": "CPython 3.9.21",
+  "startedAt": "2025-03-24T06:54:33.791490Z",
+  "args": [
+    "-opt",
+    "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/options/train/HighREV/EFNet_HighREV_Deblur.yml.temp"
+  ],
+  "program": "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/basicsr/train.py",
+  "codePath": "basicsr/train.py",
+  "git": {
+    "remote": "https://github.com/Splendor73/NTIRE2025_EventDeblur_challenge_asu.git",
+    "commit": "9e4eab46b00b6fc9e9670efc9df8742eab3d5a92"
+  },
+  "email": "splendor7ed@gmail.com",
+  "root": "/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu",
+  "host": "sg046",
+  "executable": "/home/ypatel37/.local/share/mamba/envs/ntire_env/bin/python",
+  "codePathLocal": "basicsr/train.py",
+  "cpu_count": 48,
+  "cpu_count_logical": 48,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "119830216704",
+      "used": "14882754560"
+    }
+  },
+  "memory": {
+    "total": "540627038208"
+  },
+  "cpu": {
+    "count": 48,
+    "countLogical": 48
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere"
+    }
+  ],
+  "slurm": {
+    "cluster_name": "sol",
+    "conf": "/var/spool/slurmd/conf-cache/slurm.conf",
+    "cpus_on_node": "6",
+    "cpus_per_task": "6",
+    "export_env": "NONE",
+    "get_user_env": "1",
+    "gpus_on_node": "1",
+    "gtids": "0",
+    "job_account": "grp_bshettah",
+    "job_cpus_per_node": "6",
+    "job_end_time": "1742859514",
+    "job_gid": "999997474",
+    "job_gpus": "3",
+    "job_id": "24189328",
+    "job_name": "ood-vscode",
+    "job_nodelist": "sg046",
+    "job_num_nodes": "1",
+    "job_partition": "general",
+    "job_qos": "public",
+    "job_start_time": "1742773114",
+    "job_uid": "2593829",
+    "job_user": "ypatel37",
+    "jobid": "24189328",
+    "localid": "0",
+    "mem_per_node": "66560",
+    "nnodes": "1",
+    "nodeid": "0",
+    "nodelist": "sg046",
+    "nprocs": "1",
+    "ntasks": "1",
+    "prio_process": "0",
+    "procid": "0",
+    "script_context": "prolog_task",
+    "submit_dir": "/var/www/ood/apps/sys/dashboard",
+    "submit_host": "ood05.sol.rc.asu.edu",
+    "task_pid": "2164581",
+    "tasks_per_node": "1",
+    "topology_addr": "sg046",
+    "topology_addr_pattern": "node",
+    "tres_per_task": "cpu=6"
+  },
+  "cudaVersion": "12.6"
+}

@@ -1,0 +1,10 @@
+{"time":"2025-03-23T23:54:33.796197431-07:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/wandb/run-20250323_235433-x/logs/debug-core.log"}
+{"time":"2025-03-23T23:54:34.117489225-07:00","level":"INFO","msg":"created new stream","id":"x"}
+{"time":"2025-03-23T23:54:34.117529501-07:00","level":"INFO","msg":"stream: started","id":"x"}
+{"time":"2025-03-23T23:54:34.117593131-07:00","level":"INFO","msg":"handler: started","stream_id":"x"}
+{"time":"2025-03-23T23:54:34.117774183-07:00","level":"INFO","msg":"writer: Do: started","stream_id":"x"}
+{"time":"2025-03-23T23:54:34.118071645-07:00","level":"INFO","msg":"sender: started","stream_id":"x"}
+{"time":"2025-03-23T23:54:34.567010963-07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-23T23:54:34.869545347-07:00","level":"INFO","msg":"stream: closing","id":"x"}
+{"time":"2025-03-23T23:54:34.870080017-07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-23T23:54:34.870848589-07:00","level":"INFO","msg":"Stopped system monitor"}
