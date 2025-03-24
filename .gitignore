@@ -11,9 +11,9 @@ results/
 *.env
 *.env.*results/
 
-/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results/
+results/
 
-/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/model_zoo/
+model_zoo/
 
 # Model weights
 *.pth
