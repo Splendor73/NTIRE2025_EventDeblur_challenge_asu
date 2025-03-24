@@ -11,3 +11,33 @@ results/
 *.env
 *.env.*results/
 
+/home/ypatel37/cvpr_pj_25/NTIRE2025_EventDeblur_challenge_asu/results/
+
+# Model weights
+*.pth
+*.pt
+*.ckpt
+
+# Model archives
+*.zip
+*.tar
+*.tar.gz
+
+# Output logs / large temp files
+logs/
+*.log
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# System
+.DS_Store
+Thumbs.db
